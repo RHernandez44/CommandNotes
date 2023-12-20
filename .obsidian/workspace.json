@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blue Team/Linux Notes.md",
+                "file": "Cmd Line/Tools.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Blue Team/Linux Notes.md",
+                "file": "Cmd Line/Tools.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Blue Team/Linux Notes.md",
+                "file": "Cmd Line/Tools.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,16 +125,24 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blue Team/Linux Notes.md"
+                "file": "Cmd Line/Tools.md"
               }
             }
+          },
+          {
+            "id": "1fe8c945b4857081",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 318.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,17 +154,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3863e7e3a7eebbb5",
+  "active": "1fe8c945b4857081",
   "lastOpenFiles": [
-    "Windows.md",
-    "Tools.md",
-    "Linux Notes.md",
+    "Cmd Line/Tools.md",
+    "Cmd Line/Windows.md",
+    "Cmd Line",
+    "Cmd Line/Linux Notes.md",
+    "Blue Team/Linux Notes.md",
     "CommandNotes",
     "Command Notes/Tools.md",
     "Command Notes/Linux Notes.md",
     "Command Notes/Windows.md",
     "Command Notes/Labs Notes.md",
-    "Blue Team/Linux Notes.md",
     "Blue Team",
     "Security+/Threat intelligence sources.md",
     "Diamond Attack Model/Defense.md",
