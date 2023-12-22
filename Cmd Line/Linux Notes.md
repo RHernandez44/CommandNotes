@@ -225,11 +225,24 @@ extracts tar files
 
 
 # Cron
+
+`crontab -l
+shows cron jobs
 https://crontab-generator.org/
 
-# Handy Nix files
+# Ps
+
+`top`
+displays cpu jobs and pids
+`systemctl list-unit-files`
+lists all services
+
+# ----Handy Nix FILES----
 
 >var/log
+
+>.bashrc
+
 
 logs access information, ip of logins etc
 
@@ -377,7 +390,7 @@ remotes into IP
 
 # Enumeration
 
-# Scan
+## Scan
 
 > ping [domain OR ip address]
 
@@ -411,10 +424,8 @@ nmap [host / ip]
 
 `nmap $ip -p- -A -v -top-ports 100`
 
-### SMTP
 
-
-## msfconsole
+### msfconsole
 
 ```
 search smtp enum
@@ -472,6 +483,13 @@ Show CNAME Records (cannot be used with '-i' option)
 - -i	--show-ips
 Show IP Addresses
 
+#### Common Site SubDomains
+
+- `sitemap`
+- `mail` 
+- `login`
+- `register`
+- `admin`
 ### Vitual Hosts
 
 Virtual hosts are different websites on the same machine. 
@@ -500,23 +518,23 @@ you can type `smb://10.10.69.232` into the file explorer
 
 
 
-### Vulnerable Hosts
+## Vulnerable Hosts
 
 ### nikto
 
->nikto -h 10.10.10.10 -p 80,8000,8080
+`nikto -h 10.10.10.10 -p 80,8000,8080
 enumerates on ports 80,8000 etc, 
->nmap -p80 172.16.0.0/24 -oG - | nikto -h -
+`nmap -p80 172.16.0.0/24 -oG - | nikto -h -
 takes the results of the nmap scan, formats them to a nikto friendly format (-oG), then pipes to nikto
->nikto --list plugins
+`nikto --list plugins
 lists useful plugins that are apropriate for the target
->nikto -h 10.10.10.1 -Plugin apacheuser
+`nikto -h 10.10.10.1 -Plugin apacheuser
 uses "apacheuser" plugin
->nikto -h 10.10.10.1 -Display 1,2,E
+`nikto -h 10.10.10.1 -Display 1,2,E
 can display 1,2 or E mode (redirects, cookies and errors)
->nikto -h 10.10.10.1 -Tuning (0-9)
+`nikto -h 10.10.10.1 -Tuning (0-9)
 Tuning options to find certain vulnerability types
->nikto -h 10.10.10.1 -o NiktoReport.html
+`nikto -h 10.10.10.1 -o NiktoReport.html
 can output to certain filetypes like html or txt
 
 ---
@@ -556,7 +574,7 @@ Search various terms on GitHub to find something useful
 
 
 ```
-sudo go run mosint vivian.hanrahan@gmail.com
+sudo go run mosint vivian@gmail.com
 ```
 >need to cd into mosint directory first
 

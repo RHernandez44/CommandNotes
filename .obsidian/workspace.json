@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Tools.md",
+                "file": "Cmd Line/Linux Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -80,35 +80,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "bc900f55f7f2421b",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Cmd Line/Tools.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "ec011a8328526dcb",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Cmd Line/Tools.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
             "id": "6d3531178d523519",
             "type": "leaf",
             "state": {
@@ -120,25 +91,54 @@
             }
           },
           {
-            "id": "fed8e17e0c191a26",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Cmd Line/Tools.md"
-              }
-            }
-          },
-          {
-            "id": "1fe8c945b4857081",
+            "id": "b4895d9d80ee5fae",
             "type": "leaf",
             "state": {
               "type": "git-view",
               "state": {}
             }
+          },
+          {
+            "id": "0dc3fbe3e4794f86",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Cmd Line/Linux Notes.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "273d8b439a9747c3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Cmd Line/Linux Notes.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "365c8e34207e1528",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Cmd Line/Linux Notes.md"
+              }
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -154,7 +154,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1fe8c945b4857081",
+  "active": "3863e7e3a7eebbb5",
   "lastOpenFiles": [
     "Cmd Line/Tools.md",
     "Cmd Line/Windows.md",
