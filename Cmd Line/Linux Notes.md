@@ -62,6 +62,15 @@ backgrounds the current process
 fg
 ```
 foregrounds current process
+# Add HOSTNAME
+
+How to add hostname 
+- If you are connected via VPN or AttackBox, you can add the hostname `mcgreedysecretc2.thm` by first opening the host file, depending on your host operating system.  
+- Windows                       :  `C:\Windows\System32\drivers\etc\hosts`
+- Ubuntu or AttackBox: `/etc/hosts`
+
+- Open the host file and add a new line at the end of the file in the format: `10.10.196.106 mcgreedysecretc2.thm`
+- Save the file and type `http://mcgreedysecretc2.thm` in the browser to access the website.
 
 # IP Info
 
