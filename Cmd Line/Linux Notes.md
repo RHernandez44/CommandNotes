@@ -252,6 +252,10 @@ lists all services
 
 >.bashrc
 
+list of users
+>/etc/passwd`
+
+
 
 logs access information, ip of logins etc
 
@@ -828,22 +832,22 @@ sudo hydra -l R1ckRul3s -P /usr/share/wordlists/rockyou.txt 10.10.134.126 http-p
 - username=R1ckRul3s&password=^PASS^&sub=Login      --found in the network tab under "send and edit"
 - Invalid username or password.     -- Invalid creds state, found by entering the incorrect credentials 
 
+---
 ## johntheRipper
+
+### you can also use https://crackstation.net/ to crack hashes
 
 wget https://gitlab.com/kalilinux/packages/hash-identifier/-/raw/kali/master/hash-id.py
 
->hash identifier
-
+hash identifier
 ```
 john hash.txt
 ```
 uses johntheripper to crack hashed passwords
-
 ```
 john --wordlist=[path to wordlist] [path to file]
 ```
 --wordlist=~/Tryhackme/wordlists/rockyou.txt hash.txt
-
 ```
 john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt hash_to_crack.txt
 ```
