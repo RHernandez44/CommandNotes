@@ -894,40 +894,49 @@ Opens MSF console
 ```
 msfconsole
 ```
+show modules
+```
+show 
+```
+go back
+```
+back
+```
+show info
+```
+info
+```
 search exploits
+>You can conduct searches using CVE numbers, exploit names (eternalblue, heartbleed, etc.), or target system.
 ```
 search [[exploit service]]
+```
+use option number 10
+```
+use 10
 ```
 see exploit options
 ```
 options
-
 ```
 set options 
-
 ```
 set RHOSTS
-
 ```
-search exploits
+set the global value for RHOSTS  to 10.10.19.23
 ```
-search [[exploit service]]
-```
-see exploit options
-```
-options
-
-```
-set options 
-
-```
-set RHOSTS
-
+setg RHOSTS 10.10.19.23
 ```
 run
 ```
 run
 ```
+proceed to exploit stage
+```
+exploit
+```
+
+
 
 ```
 mysql_schemadump
