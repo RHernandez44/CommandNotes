@@ -503,6 +503,8 @@ Show IP Addresses
 - `login`
 - `register`
 - `admin`
+- `console`
+- 
 ### Vitual Hosts
 
 Virtual hosts are different websites on the same machine. 
@@ -636,6 +638,11 @@ contains ssh configurations such as #PasswordAurhentication
 ---
 #  SQL Injection
 
+add a space character before registering a new account to gain the same read/write permissions as an account with the same name
+```
+'admin' --> is a registered account username
+you create the username ' admin' to gain the same rights 
+```
 ### In Band Authentication bypass
 ~~~
 ' OR 1=1;--
