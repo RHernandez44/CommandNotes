@@ -1,10 +1,13 @@
 Core commands will be helpful to navigate and interact with the target system. Below are some of the most commonly used. Remember to check all available commands running the help command once a Meterpreter session has started. 
-Core commands
+### Core commands
 - background: Backgrounds the current session     
-- exit: Terminate the Meterpreter session     guid: Get the session GUID (Globally Unique Identifier)     
+- exit: Terminate the Meterpreter session     
+- guid: Get the session GUID (Globally Unique Identifier)     
 - help: Displays the help menu     
-- info: Displays information about a Post module     irb: Opens an interactive Ruby shell on the current session     
-- load: Loads one or more Meterpreter extensionsmigrate: Allows you to migrate Meterpreter to another process     
+- info: Displays information about a Post module     
+- irb: Opens an interactive Ruby shell on the current session     
+- load: Loads one or more Meterpreter 
+- extensionsmigrate: Allows you to migrate Meterpreter to another process     
 - run: Executes a Meterpreter script or Post module     
 - sessions: Quickly switch to another session File system commands     
 - cd: Will change directory     
@@ -12,14 +15,18 @@ Core commands
 - edit: will allow you to edit a file     
 - cat: Will show the contents of a file to the screen     
 - rm: Will delete the specified file     
-- search: Will search for files     
+
+	- #### search: Will search for files     
+
 - upload: Will upload a file or directory     
-- download: Will download a file or directory Networking commands     
+- download: Will download a file or directory 
+### Networking commands     
 - arp: Displays the host ARP (Address Resolution Protocol) cache     
 - ifconfig: Displays network interfaces available on the target system     
 - netstat: Displays the network connections     
 - portfwd: Forwards a local port to a remote service     
-- route: Allows you to view and modify the routing table System commands     
+- route: Allows you to view and modify the routing table 
+### System commands     
 - clearev: Clears the event logs     
 - execute: Executes a command     
 - getpid: Shows the current process identifier     
@@ -27,17 +34,28 @@ Core commands
 - kill: Terminates a process     
 - pkill: Terminates processes by name     
 - ps: Lists running processes     
-- reboot: Reboots the remote computer     
-- shell: Drops into a system command shell     
-- shutdown: Shuts down the remote computer     sysinfo: Gets information about the remote system, such as OS Others Commands (these will be listed under different menu categories in the help menu)     
+- reboot: Reboots the remote computer   
+
+	- #### shell: Drops into a system command shell     
+
+- shutdown: Shuts down the remote computer     
+
+	- #### sysinfo: Gets information about the remote system, such as 
+### OS Others Commands (these will be listed under different menu categories in the help menu)     
 - idletime: Returns the number of seconds the remote user has been idle     
 - keyscan_dump: Dumps the keystroke buffer     
 - keyscan_start: Starts capturing keystrokes     
-- keyscan_stop: Stops capturing keystrokes     screenshare: Allows you to watch the remote user's desktop in real time     screenshot: Grabs a screenshot of the interactive desktop     
- - record_mic: Records audio from the default microphone for X seconds     
+- keyscan_stop: Stops capturing keystrokes     
+- screenshare: Allows you to watch the remote user's desktop in real time     
+- screenshot: Grabs a screenshot of the interactive desktop     
+- record_mic: Records audio from the default microphone for X seconds     
 - webcam_chat: Starts a video chat     
 - webcam_list: Lists webcams     
 - webcam_snap: Takes a snapshot from the specified webcam     
-- webcam_stream: Plays a video stream from the specified webcam     
-- getsystem: Attempts to elevate your privilege to that of local system     
-- hashdump: Dumps the contents of the SAM database Untitled
+- webcam_stream: Plays a video stream from the specified webcam
+
+	- #### getsystem: Attempts to elevate your privilege to that of local system     
+
+	- #### hashdump: Dumps the contents of the SAM database 
+		- The `hashdump` in Meterpreter command will list the content of the SAM database. The SAM (Security Account Manager) database stores user's passwords on Windows systems. These passwords are stored in the NTLM (New Technology LAN Manager) format.
+- 

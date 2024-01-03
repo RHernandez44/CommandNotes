@@ -13,5 +13,7 @@ In Windows, behaves similarly to tracert by pinging every hop along the route to
 ---
 # Handy Windows files
 
->Event Viewer
 shows logs
+`Event Viewer
+
+The `hashdump` in Meterpreter command will list the content of the SAM database. The SAM (Security Account Manager) database stores user's passwords on Windows systems. These passwords are stored in the NTLM (New Technology LAN Manager) format.
