@@ -899,65 +899,8 @@ john --single --format=[format] [path to file]
 ```
 Intruder tab on Burpsuite
 ```
-# METASPLOIT
 
-Opens MSF console
-```
-msfconsole
-```
-show modules
-```
-show 
-```
-go back
-```
-back
-```
-show info
-```
-info
-```
-search exploits
->You can conduct searches using CVE numbers, exploit names (eternalblue, heartbleed, etc.), or target system.
-```
-search [[exploit service]]
-```
-use option number 10
-```
-use 10
-```
-see exploit options
-```
-options
-```
-set options 
-```
-set RHOSTS
-```
-set the global value for RHOSTS  to 10.10.19.23
-```
-setg RHOSTS 10.10.19.23
-```
-run
-```
-run
-```
-proceed to exploit stage
-```
-exploit
-```
-
-
-
-```
-mysql_schemadump
-```
-dumps database info from a mysql server
-
-```
-mysql_hashdump  
-```
-
+---
 # Reverse Shells
 
 Payloads all the Things
