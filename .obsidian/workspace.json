@@ -32,6 +32,18 @@
             }
           },
           {
+            "id": "80dae3b5615db782",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cmd Line/Windows.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "fc58726eb23c1022",
             "type": "leaf",
             "state": {
@@ -43,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -87,7 +100,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Meterpreter commands.md"
+                "file": "Cmd Line/Windows.md"
               }
             }
           },
@@ -98,9 +111,16 @@
               "type": "git-view",
               "state": {}
             }
+          },
+          {
+            "id": "a21fe3487dfc4429",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -131,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Meterpreter commands.md",
+                "file": "Cmd Line/Windows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +168,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Meterpreter commands.md",
+                "file": "Cmd Line/Windows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,7 +191,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bdc8b05de993633a",
+  "active": "80dae3b5615db782",
   "lastOpenFiles": [
     "Cmd Line/Tools.md",
     "Cmd Line/Meterpreter commands.md",

