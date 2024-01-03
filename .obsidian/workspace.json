@@ -8,12 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a457cf9491f6b996",
+            "id": "bdc8b05de993633a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Tools.md",
+                "file": "Cmd Line/Meterpreter commands.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fc58726eb23c1022",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cmd Line/Linux Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -58,20 +70,12 @@
             }
           },
           {
-            "id": "e82eaa24543a7505",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {}
-            }
-          },
-          {
             "id": "365c8e34207e1528",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Tools.md"
+                "file": "Cmd Line/Meterpreter commands.md"
               }
             }
           },
@@ -83,8 +87,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -115,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Tools.md",
+                "file": "Cmd Line/Meterpreter commands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Tools.md",
+                "file": "Cmd Line/Meterpreter commands.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -155,9 +158,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b4895d9d80ee5fae",
+  "active": "bdc8b05de993633a",
   "lastOpenFiles": [
     "Cmd Line/Linux Notes.md",
+    "Cmd Line/Meterpreter commands.md",
     "Cmd Line/Tools.md",
     "Cmd Line/Reverse Engineering.md",
     "Cmd Line/Git.md",

