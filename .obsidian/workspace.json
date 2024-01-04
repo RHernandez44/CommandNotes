@@ -37,14 +37,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Priveledge Escalation.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -88,7 +88,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Linux Notes.md"
+                "file": "Cmd Line/Privilege Escalation.md"
               }
             }
           },
@@ -108,7 +108,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -139,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Linux Notes.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +157,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Linux Notes.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -179,12 +180,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8b2567462541f3f4",
+  "active": "44079a260d8d3eb9",
   "lastOpenFiles": [
     "Cmd Line/Tools.md",
-    "Cmd Line/Priveledge Escalation.md",
-    "Cmd Line/Enumeration.md",
     "Cmd Line/Linux Notes.md",
+    "Cmd Line/Privilege Escalation.md",
+    "Cmd Line/Enumeration.md",
     "Cmd Line/Git.md",
     "Cmd Line/Reverse Engineering.md",
     "Blue Team/Blue Team Linux Notes.md",
