@@ -83,7 +83,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -154,7 +155,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "44079a260d8d3eb9",
+  "active": "b4895d9d80ee5fae",
   "lastOpenFiles": [
     "Cmd Line/Linux Notes.md",
     "Cmd Line/Tools.md",

