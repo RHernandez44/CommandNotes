@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d09d7b55782a4a9f",
+            "id": "a26ea1b5dcbb055f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "44079a260d8d3eb9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cmd Line/Priveledge Escalation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -63,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Linux Notes.md"
+                "file": "Cmd Line/Priveledge Escalation.md"
               }
             }
           },
@@ -114,7 +127,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Linux Notes.md",
+                "file": "Cmd Line/Priveledge Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +144,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Linux Notes.md",
+                "file": "Cmd Line/Priveledge Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,15 +167,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d09d7b55782a4a9f",
+  "active": "44079a260d8d3eb9",
   "lastOpenFiles": [
     "Cmd Line/Linux Notes.md",
+    "Cmd Line/Priveledge Escalation.md",
+    "Cmd Line/Reverse Engineering.md",
+    "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/Tools.md",
-    "Blue Team/Linux Notes.md",
     "Cmd Line/Windows.md",
     "Cmd Line/~$Git.md",
     "Cmd Line/Meterpreter commands.md",
-    "Cmd Line/Reverse Engineering.md",
     "Cmd Line/Git.md",
     "Cmd Line",
     "CommandNotes",

