@@ -106,6 +106,12 @@ crontabs have the following format:
 3. start listener and wait for shell to land
 `nc -lvnp 8888`
 
+
+
+## Exploiting PATH Variable
+
+
+
 ---
 # Handy Nix Files
 
