@@ -108,8 +108,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -183,8 +182,9 @@
   "active": "44079a260d8d3eb9",
   "lastOpenFiles": [
     "Cmd Line/Tools.md",
-    "Cmd Line/Linux Notes.md",
     "Cmd Line/Privilege Escalation.md",
+    "Cmd Line/Linux Notes.md",
+    "GTFOBins.md",
     "Cmd Line/Enumeration.md",
     "Cmd Line/Git.md",
     "Cmd Line/Reverse Engineering.md",

