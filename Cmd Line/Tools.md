@@ -1,6 +1,8 @@
-# Enumeration
+# Enumeration Tools
 
 Search engines can reveal a lot about internet-accessible servers and devices. You can use special search operators on Google to find hidden info, or use a specialized search engine like Shodan or Censys.
+
+`Metasplot` has purpose built scanner modules for different services
 
 `Dnsenum` is a DNS harvesting tool that can be used to locate all DNS servers and records for an organization.
 
@@ -29,7 +31,7 @@ tcpdump
 ```
 
 ---
-# Log Analysis from the CLI
+# Log Analysis from the CLI using Silk
 
 `SiLK` 
 helps analysts gain insight into multiple aspects of network behaviour.
@@ -300,3 +302,15 @@ As usual, we're connecting two points together. In this case those points are a 
 `socat OPENSSL-LISTEN:<PORT>,cert=shell.pem,verify=0 -`
 - To connect back, we would use:
 `
+
+# Git
+
+`git clone http://10.10.138.162:3000/McHoneyBell/gift-wrapper-pipeline.git`-
+Once cloned, we can make any changes we wish, then "commit" the changes
+`git add .`
+
+`git commit -m "<message here>"`  
+
+`git push`
+
+

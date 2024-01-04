@@ -213,6 +213,9 @@ https://crontab-generator.org/
 
 holds cronjob info
 /etc/crontab
+
+crontabs have the following format:
+`<minute> <hour> <day of month> <month> <day of week> <user> <command>`
 # Ps
 
 `top`
