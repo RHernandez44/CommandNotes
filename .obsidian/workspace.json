@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a26ea1b5dcbb055f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cmd Line/Tools.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8b2567462541f3f4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cmd Line/Linux Notes.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "44079a260d8d3eb9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Checklist/Privilege Escalation.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -88,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Checklist/Privilege Escalation.md"
+                "file": "Cmd Line/Privilege Escalation.md"
               }
             }
           },
@@ -139,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Checklist/Privilege Escalation.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -156,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Checklist/Privilege Escalation.md",
+                "file": "Cmd Line/Privilege Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -181,11 +156,11 @@
   },
   "active": "44079a260d8d3eb9",
   "lastOpenFiles": [
-    "Cmd Line/Privilege Escalation.md",
-    "Checklist/Privilege Escalation.md",
-    "Checklist",
-    "Cmd Line/Tools.md",
     "Cmd Line/Linux Notes.md",
+    "Cmd Line/Tools.md",
+    "Cmd Line/Privilege Escalation.md",
+    "Checklist/Privilege Escalation Checklist.md",
+    "Checklist",
     "GTFOBins.md",
     "Cmd Line/Enumeration.md",
     "Cmd Line/Git.md",
