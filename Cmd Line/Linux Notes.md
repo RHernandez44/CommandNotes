@@ -94,86 +94,59 @@ Performs DNS lookups and displays the IP address of a given hostname.digA more p
 Displays the hop-by-hop path to a given host, along with the round-trip time to each hop.
 
 # File Direction
-```
-ls | file -f -
-```
+
+## Find
+
+`find / -perm -u=s -type f 2>/dev/null
+
+- `find - Initiates the "find" command  
+- `/` - Searches the whole file system  
+- `-perm` - searches for files with specific permissions  
+- `-u=s` - Any of the permission bits _mode_ are set for the file. Symbolic modes are accepted in this form
+- `-type f**` - Only search for files  
+
+**2>/dev/null** - Suppresses errors
+
 prints list > then pipes that to file
-```
-which [filename]
-```
+`ls | file -f -
 displays location of file
-```
-grep
-```
+`which [filename]
+
+`grep
 searches for patterns
 - -i ignores case
 - -v inverts search case (ignore everything with [pattern]
 - -n prints what line number is beside each grep
 - -A 2 -B 4  -- prints the 2 lines AFTER and 4 lines BEFORE
 
-```
-grep "ftp" /usr/share/nmap/scripts/script.db
-```
 grep a file
-
-```
-grep -E "thm|tryhackme" log.txt
-```
+`grep "ftp" /usr/share/nmap/scripts/script.db
 -E	Searches using regex (regular expressions). For example, we can search for lines that contain either "thm" or "tryhackme"	
-
-```
-grep -r "helloworld" mydirectory
-```
-
+`grep -E "thm|tryhackme" log.txt
 Search recursively. For example, search all of the files in a directory for this value.
+`grep -r "helloworld" mydirectory
 
-```
-ls -l /usr/share/nmap/scripts/*ftp*
-```
 ls a directory for files that contain *ftp*
-```
-find
-```
-search for files in a directory hierachy 
-- -user uname
-- -size n 
-- -group gname 
-- -name filename 
-- -name * .txt 
-finds all txt files
-```
-sort
-```
+`ls -l /usr/share/nmap/scripts/*ftp*
 sort lines of text files
-
-```
-uniq
-```
+`sort
 displays lines that are repeated
-```
-strings 
-```
+`uniq
 finds string patterns in a file
-```
-cut -d:  -f1
-```
+`strings 
 only see one field from the password file.
-
+`cut -d:  -f1
 For example, to just see the Unix user names, use the command 
 ` “$ cat /etc/passwd | cut -d: -f1.” 
-
-```
-nl access.log
-```
 The nl command stands for **number lines**. It renders the contents of the file in a numbered line format.
+`nl access.log
 
-```
-cut -d ' ' -f1,3,6 access.log
-```
+## Log Analysis
+
 cuts into columns delimited by a space ( ' ' ) 
+`cut -d ' ' -f1,3,6 access.log
 takes columns 1,3 & 6
 
-----
 #### The first use of the cut command retrieves the column of the domain:port, and the second one removes the port by splitting it with a colon.
 
 ~~~

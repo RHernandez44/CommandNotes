@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -76,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Priveledge Escalation.md"
+                "file": "Cmd Line/Linux Notes.md"
               }
             }
           },
@@ -127,7 +126,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Priveledge Escalation.md",
+                "file": "Cmd Line/Linux Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Priveledge Escalation.md",
+                "file": "Cmd Line/Linux Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,10 +166,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "44079a260d8d3eb9",
+  "active": "a26ea1b5dcbb055f",
   "lastOpenFiles": [
-    "Cmd Line/Linux Notes.md",
     "Cmd Line/Priveledge Escalation.md",
+    "Cmd Line/Linux Notes.md",
     "Cmd Line/Reverse Engineering.md",
     "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/Tools.md",
