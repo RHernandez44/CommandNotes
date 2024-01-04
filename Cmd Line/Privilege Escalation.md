@@ -76,6 +76,9 @@ switch to your new user and enter passwd
 you should have root
 `sudo -i
 
+## Escaping Vi Editor
+
+
 
 ---
 # Handy Nix Files
