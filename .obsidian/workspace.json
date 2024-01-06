@@ -88,7 +88,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -159,7 +159,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b4895d9d80ee5fae",
+  "active": "44079a260d8d3eb9",
   "lastOpenFiles": [
     "Cmd Line/Linux Notes.md",
     "Cmd Line/Privilege Escalation.md",

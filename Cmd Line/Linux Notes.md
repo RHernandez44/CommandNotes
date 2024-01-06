@@ -1,97 +1,42 @@
 # Navigate
 
-```
-&
-```
-
 allows us to execute commands in the background	`e.g cp file.txt filecopy.txt &`
-
-```
-&&
-```
+`&
 
 to make a list of commands to run
 e.g. `sudo apt update && sudo apt-get install whois`
-
-```
-su user2
-```
+`&&
 
 switch user to user2
+`su user2
 
-```
-./
-```
 "." denotes the current working directory
-
 "." before a filename is how *nix denotes hidden files in its structure
+`./
 
-```
-\	
-```
 escape character - escapes the next character from stdin
-```
-file [filename]
-```
+`/`
+
 prints file content to stdout
-```
-2>/dev/null
-```
+`file [filename]
+
 redirects stderr to Null
-```
-mktemp -d
-```
+`2>/dev/null
+
 makes directory in /tmp with random name
-```
-du
-```
+`mktemp -d
+
 displays file space usage
-```
-ps
-```
-processes
-```
-kill [PID]
-```
-kills the proccess of that PID no#
-```
-Ctrl+z
-```
+`du
+
 backgrounds the current process
-```
-fg
-```
+`Ctrl+z
+
 foregrounds current process
-# Add HOSTNAME
+`fg
 
-How to add hostname 
-- If you are connected via VPN or AttackBox, you can add the hostname `mcgreedysecretc2.thm` by first opening the host file, depending on your host operating system.  
-- Windows                       :  `C:\Windows\System32\drivers\etc\hosts`
-- Ubuntu or AttackBox: `/etc/hosts`
 
-- Open the host file and add a new line at the end of the file in the format: `10.10.196.106 mcgreedysecretc2.thm`
-- Save the file and type `http://mcgreedysecretc2.thm` in the browser to access the website.
-
-# IP Info
-
-`ifconfig`
-Unix-like operating systems, displays or configures IP settings for network interfaces.
-
-`netstat`
-Displays a variety of network information, including active connections, routing tables, and traffic statistics.
-
-`arp`
-Displays the IPv4 ARP cache.
-
-`traceroute`
-Views or manipulates the IP routing table used to find paths to network addresses
-
-`nslookup`
-Performs DNS lookups and displays the IP address of a given hostname.digA more powerful alternative to nslookup. Particularly useful for zone transfers.
-
-`traceroute`
-`tracert`
-Displays the hop-by-hop path to a given host, along with the round-trip time to each hop.
+---
 
 # File Direction
 
@@ -180,6 +125,37 @@ admin.microsoft.com
 
 ----
 
+# Add HOSTNAME
+
+How to add hostname 
+- If you are connected via VPN or AttackBox, you can add the hostname `mcgreedysecretc2.thm` by first opening the host file, depending on your host operating system.  
+- Windows                       :  `C:\Windows\System32\drivers\etc\hosts`
+- Ubuntu or AttackBox: `/etc/hosts`
+
+- Open the host file and add a new line at the end of the file in the format: `10.10.196.106 mcgreedysecretc2.thm`
+- Save the file and type `http://mcgreedysecretc2.thm` in the browser to access the website.
+
+# IP Info
+
+`ifconfig`
+Unix-like operating systems, displays or configures IP settings for network interfaces.
+
+`netstat`
+Displays a variety of network information, including active connections, routing tables, and traffic statistics.
+
+`arp`
+Displays the IPv4 ARP cache.
+
+`traceroute`
+Views or manipulates the IP routing table used to find paths to network addresses
+
+`nslookup`
+Performs DNS lookups and displays the IP address of a given hostname.digA more powerful alternative to nslookup. Particularly useful for zone transfers.
+
+`traceroute`
+`tracert`
+Displays the hop-by-hop path to a given host, along with the round-trip time to each hop.
+
 # Zip Files
 
 ```
@@ -218,10 +194,17 @@ crontabs have the following format:
 `<minute> <hour> <day of month> <month> <day of week> <user> <command>`
 # Ps
 
-`top`
+processes
+`ps
 displays cpu jobs and pids
-`systemctl list-unit-files`
+`top`
 lists all services
+`systemctl list-unit-files`
+kills the proccess of that PID no#
+`kill [PID]
+
+
+---
 
 # ----Handy Nix FILES----
 
@@ -265,7 +248,7 @@ shows logs
 |Syslog	|This log file contains all events related to things happening in the system's background. For example, crontabs executing, services starting and stopping, or other automatic behaviours such as log rotation. This file can help debug problems.|syslog|2022-06-03 13:33:7 Finished Daily apt download activities..|
 |Kernel|This log file contains all events related to kernel events on the system. For example, changes to the kernel, or output from devices such as networking equipment or physical devices such as USB devices.|	kern.log|2022-06-03 10:10:01 Firewalling registered|
 
-# Common Hash Prefix
+# Common Hash Prefixes
 
 >$1$	    md5crypt, used in Cisco stuff and older Linux/Unix systems
 >$2$, $2a$, $2b$, $2x$, $2y$        Bcrypt (Popular for web applications)
@@ -324,10 +307,12 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub YOUR_USER_NAME@IP_ADDRESS_OF_THE_SERVER
 ```
 Your public key should be copied at the appropriate folder on the remote server automatically.
 
+
+## Connect to MYSQL server
+
 ```
 mysql -h [IP] -u [username] -p
 ```
-Connect to MYSQL server
 
 ## Remote Desktop - RDP
 

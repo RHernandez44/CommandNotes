@@ -71,6 +71,16 @@ find / -perm -u=s -type f 2>/dev/null
 
 Google exploits for SUID binaries e.g. [exim-4.84-3](https://www.exploit-db.com/exploits/39535)
 
+### SUID / SGID Executables - Shared Object Injection
+
+`usr/local/bin/suid-so` SUID executable is vulnerable to shared object injection
+
+1. Run **strace** on the file and search the output for open/access calls and for "no such file" errors:
+`strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"`
+2. 
+
+
+
 ## Exploiting a writable /etc/passwd
 
 example entry of a user
