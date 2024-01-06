@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Privilege Escalation.md",
+                "file": "Cmd Line/CLI Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Linux Notes.md",
+                "file": "Cmd Line/CLI Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "reverse shell",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Privilege Escalation.md"
+                "file": "Cmd Line/CLI Notes.md"
               }
             }
           },
@@ -87,8 +87,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -119,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Privilege Escalation.md",
+                "file": "Cmd Line/CLI Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Privilege Escalation.md",
+                "file": "Cmd Line/CLI Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -159,19 +158,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "44079a260d8d3eb9",
+  "active": "50013aafa6a808f2",
   "lastOpenFiles": [
-    "Cmd Line/Linux Notes.md",
+    "Cmd Line/Enumeration & Connection.md",
+    "Cmd Line/CLI Notes.md",
+    "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/Privilege Escalation.md",
+    "GTFOBins.md",
     "Cmd Line/Tools.md",
+    "Cmd Line/Windows.md",
     "Checklist/Privilege Escalation Checklist.md",
     "Checklist",
-    "GTFOBins.md",
-    "Cmd Line/Enumeration.md",
     "Cmd Line/Git.md",
     "Cmd Line/Reverse Engineering.md",
-    "Blue Team/Blue Team Linux Notes.md",
-    "Cmd Line/Windows.md",
     "Cmd Line/~$Git.md",
     "Cmd Line/Meterpreter commands.md",
     "Cmd Line",
