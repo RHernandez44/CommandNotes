@@ -23,12 +23,6 @@ CAPTCHA cracker
 (requires training data for ML)
 https://github.com/WithSecureLabs/captcha22
 
-network monitoring and analysis tools
-```
-Wireshark, 
-tshark, 
-tcpdump
-```
 
 ---
 # Log Analysis from the CLI using Silk
@@ -58,7 +52,36 @@ lists the top talkers on the network
 
 # MetaSploit 
 
-Steps To use MSFCONSOLE:
+# Searchsploit 
+
+Search exploitDB
+```shell
+searchsploit afd windows local
+```
+We can remove unwanted results by using the `--exclude` option. We are also able to remove multiple terms by separating the value with a `|` (pipe). This can be demonstrated by the following:
+```text
+kali@kali:~$ searchsploit linux kernel 3.2 --exclude="(PoC)|/dos/"
+```
+By using `-p`, we are able to get some more information about the exploit, as well as copy the complete path to the exploit onto the clipboard:
+```text
+kali@kali:~$ searchsploit 39446
+```
+make a copy of exploits and use them from a working directory. By using the `-m` option, we are able to select as many exploits we like to be copied into the same folder that we are currently in:
+
+```text
+kali@kali:~$ searchsploit MS14-040
+--------------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                         |  Path
+--------------------------------------------------------------------------------------- ---------------------------------
+Microsoft Windows 7 (x64) - 'afd.sys' Dangling Pointer Privilege Escalation (MS14-040) | exploits/windows_x86-64/local/39525.py
+Microsoft Windows 7 (x86) - 'afd.sys' Dangling Pointer Privilege Escalation (MS14-040) | exploits/windows_x86/local/39446.py
+--------------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Result
+kali@kali:~$
+kali@kali:~$ searchsploit -m 39446 win_x86-64/local/39525.py
+```
+
+## Steps To use MSFCONSOLE:
 1. search for the correct module
 2. use the `info` command for any module
 3. go into module use the `use` command
@@ -183,7 +206,7 @@ Eternal Blue exploit
 
 ---
 
-# msfvenom create payloads
+## msfvenom create payloads
 
 search for payloads
 `msfvenom --list payloads | grep "linux/x86/meterpreter"

