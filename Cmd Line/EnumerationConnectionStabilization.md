@@ -387,6 +387,8 @@ wfuzz -c -z file,usernames.txt -z file,passwords.txt --hs "Please enter the corr
 
 ## Hydra
 
+`hydra -l jan -P ~/rockyou/rockyou.txt -f -v ssh://10.10.37.200
+
 `hydra -l '' -P 3digits.txt -f -v 10.10.123.72 http-post-form "/login.php:pin=^PASS^:Access denied" -s 8000`
 
 The command above will try one password after another in the `3digits.txt` file. It specifies the following:
@@ -423,6 +425,10 @@ sudo hydra -l R1ckRul3s -P /usr/share/wordlists/rockyou.txt 10.10.134.126 http-p
 ### you can also use https://crackstation.net/ to crack hashes
 
 wget https://gitlab.com/kalilinux/packages/hash-identifier/-/raw/kali/master/hash-id.py
+
+RSA Key Cracker
+`ssh2john RSA_Key_file > RSAforJohn.txt`
+`john RSAforJohn --wordlist=rockyou/rockyou.txt
 
 hash identifier
 ```

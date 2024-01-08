@@ -8,23 +8,27 @@
         "type": "tabs",
         "children": [
           {
-            "id": "7cadc903db3a7eaa",
+            "id": "24949db81f815a26",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Privilege Escalation.md",
+                "file": "Cmd Line/CLI Commands.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "24949db81f815a26",
+            "id": "c878d546147f09ec",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Cmd Line/EnumerationConnectionStabilization.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -57,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "bin/bash",
+                "query": "buster",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -71,7 +75,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Cmd Line/EnumerationConnectionStabilization.md"
+              }
             }
           },
           {
@@ -82,8 +88,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -114,6 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Cmd Line/EnumerationConnectionStabilization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,6 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Cmd Line/EnumerationConnectionStabilization.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,18 +159,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "24949db81f815a26",
+  "active": "c878d546147f09ec",
   "lastOpenFiles": [
-    "Cmd Line/Tools.md",
-    "Cmd Line/EnumerationConnectionStabilization.md",
     "Cmd Line/CLI Commands.md",
+    "Cmd Line/Tools.md",
+    "Cmd Line/Privilege Escalation.md",
+    "Checklist/Privilege Escalation Checklist.md",
+    "Cmd Line/EnumerationConnectionStabilization.md",
     "Cmd Line/Meterpreter commands.md",
     "Blue Team/Blue Team Linux Notes.md",
-    "Cmd Line/Privilege Escalation.md",
     "Diamond Attack Model/Defense.md",
     "Cmd Line/Windows.md",
     "GTFOBins.md",
-    "Checklist/Privilege Escalation Checklist.md",
     "Checklist",
     "Cmd Line/Git.md",
     "Cmd Line/Reverse Engineering.md",
