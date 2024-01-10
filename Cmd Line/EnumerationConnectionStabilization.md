@@ -36,6 +36,17 @@ Runs all most popular scripts
 Run all the scripts within a category
 `nmap --script discovery 192.168.122.1`
 
+
+---
+
+### NFS 
+
+scan NFS or RPC binds 
+`nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.136.6
+
+
+
+
 ### WordPress blogs~
 ```
 wpscan
@@ -110,7 +121,10 @@ gobuster vhost -u http://example.com -w /usr/share/wordlists/SecLists/Discovery/
 
 ### enum4linux
 
->enum4linux -a 10.10.69.691
+nmap scan for SMB shares
+`nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse MACHINE_IP
+Use enum4linux
+`enum4linux -a 10.10.69.691
 
 ```
 smbclient //10.10.10.2/secret -U suit -p 445
@@ -119,10 +133,8 @@ smbclient //10.10.10.2/secret -U suit -p 445
 - -u    username
 - -p    port number
 
-Access the 'Share' using `smbclient //IP/SHARE`
-
-you can type `smb://10.10.69.232` into the file explorer
-
+recursively download the SMB share
+`smbget -R smb://10.10.136.6/anonymous
 
 
 ## Vulnerable Hosts
