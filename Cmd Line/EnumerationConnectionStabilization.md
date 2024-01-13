@@ -44,10 +44,9 @@ Run all the scripts within a category
 scan NFS or RPC binds 
 `nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.136.6
 
-
-
-
+---
 ### WordPress blogs~
+
 ```
 wpscan
 ```
@@ -69,7 +68,9 @@ uses bruteforce wordlist on the users you have found
 ```
 argument that changes scan footprint
 
+---
 ### Web Directories
+
 ```
 gobuster dir
 OR
@@ -90,6 +91,7 @@ Skip TLS certificate verification
 An important Gobuster switch here is the -x switch, which can be used to look for files with specific extensions. For example, if you added -x php,txt,html to your Gobuster command, the tool would append .php, .txt, and .html to each word in the selected wordlist, one at a time. This can be very useful if you've managed to upload a payload and the server is changing the name of uploaded files.
 
 ### Subdomains
+
 ```
 gobuster dns
 ```
@@ -107,7 +109,13 @@ Show IP Addresses
 - `register`
 - `admin`
 - `console`
-- 
+
+### Sub Domain lister tool
+`./sublist3r.py -d acmeitsupport.thm
+
+### DNS Enumeration
+`dnsrecon -t brt -d acmesupport.thm`
+
 ### Vitual Hosts
 
 Virtual hosts are different websites on the same machine. 
@@ -117,6 +125,17 @@ Virtual Hosts are IP based and are running on the same server.
 ```
 gobuster vhost -u http://example.com -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
+
+
+Because web servers can host multiple websites from one server when a website is requested from a client, the server knows which website the client wants from the **Host** header. We can utilise this host header by making changes to it and monitoring the response to see if we've discovered a new website.
+```shell-session
+ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://MACHINE_IP
+```
+Because the above command will always produce a valid result, we need to filter the output. We can do this by using the page size result with the **-fs** switch. Edit the below command replacing {size} with the most occurring size value from the previous result 
+`user@machine$ ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://MACHINE_IP -fs {size}`
+
+
+---
 ## SMB
 
 ### enum4linux
@@ -157,63 +176,18 @@ Tuning options to find certain vulnerability types
 can output to certain filetypes like html or txt
 
 ---
-# OSINT
 
-- `inurl:` Searches for a specified text in all indexed URLs. For example, `inurl:hacking` will fetch all URLs containing the word "hacking".
-- `filetype:` Searches for specified file extensions. For example, `filetype:pdf "hacking"` will bring all pdf files containing the word "hacking". 
-- `site:` Searches all the indexed URLs for the specified domain. For example, `site:tryhackme.com` will bring all the indexed URLs from  tryhackme.com.
-- `cache:` Get the latest cached version by the Google search engine. For example, `cache:tryhackme.com.`
+### Web Exploitation
 
-```
-whois santagift.shop
+#### Username Enumeration
+
+```shell
+ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -X POST -d "username=FUZZ&email=x&password=x&cpassword=x" -H "Content-Type: application/x-www-form-urlencoded" -u http://MACHINE_IP/customers/signup -mr "username already exists"`
 ```
 
 
-uses database to display public domain info
-
->https://who.is/
-
-robots.txt 
-
-provides sitemap info
-
-> Searching GitHub Repos
-
-Search various terms on GitHub to find something useful
-
-|Tool | Purpose |
-|---|---|
-|VirusTotal|A service that provides a cloud-based detection toolset and sandbox environment.|
-|InQuest|A service provides network and file analysis by using threat analytics.|
-|IPinfo.io|A service that provides detailed information about an IP address by focusing on geolocation data and service provider.|
-|Talos Reputation|An IP reputation check service is provided by Cisco Talos.|
-|Urlscan.io|A service that analyses websites by simulating regular user behaviour.|
-|Browserling|A browser sandbox is used to test suspicious/malicious links.|
-|Wannabrowser|A browser sandbox is used to test suspicious/malicious links.|
 
 
-```
-sudo go run mosint vivian@gmail.com
-```
->need to cd into mosint directory first
-
-# Email Analysis
-
-| Questions to ask | Evaluation |
-|---|---|
-|Do the "From", "To", and "CC" fields contain valid addresses?|Having invalid addresses is a red flag.|
-|Are the "From" and "To" fields the same?|Having the same sender and recipient is a red flag.|
-|Are the "From" and "Return-Path" fields the same?|Having different values in these sections is a red flag.|
-|Was the email sent from the correct server?|Email should have come from the official mail servers of the sender.|
-|Does the "Message-ID" field exist, and is it valid?|Empty and malformed values are red flags.|
-|Do the hyperlinks redirect to suspicious/abnormal sites?|Suspicious links and redirections are red flags.|
-|Do the attachments consist of or contain malware?|Suspicious attachments are a red flag.File hashes marked as suspicious/malicious by sandboxes are a red flag.|
-
->https://emailrep.io/
-email reputation analyser
-
->https://eml-analyzer.herokuapp.com/
-email analyser that uses SpamAssasin, VirusTotal & others
 
 
 ---
@@ -382,6 +356,14 @@ The command above specifies the following:
 - `3` the second number is the maximum length of the generated password
 - `0123456789ABCDEF` is the character set to use to generate the passwords
 - `-o 3digits.txt` saves the output to the `3digits.txt` file
+
+## ffuf
+
+```
+ffuf -w valid_usernames.txt:W1,/usr/share/wordlists/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt:W2 -X POST -d "username=W1&password=W2" -H "Content-Type: application/x-www-form-urlencoded" -u http://MACHINE_IP/customers/login -fc 200
+```
+`W1` for our list of valid usernames and `W2` for the list of passwords we will try
+For a positive match, we're using the `-fc` argument to check for an HTTP status code other than 200.
 
 ## WFuzz
 

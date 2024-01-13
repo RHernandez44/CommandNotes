@@ -8,19 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "24949db81f815a26",
+            "id": "13f452a32fa00e9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "OSINT/OSINT.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "c878d546147f09ec",
+            "id": "3062168b1ee7a6fb",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -30,21 +30,9 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "13f452a32fa00e9e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cmd Line/CLI Commands.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "netcat",
+                "query": "ffuf",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -88,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/CLI Commands.md"
+                "file": "Cmd Line/EnumerationConnectionStabilization.md"
               }
             }
           },
@@ -99,8 +87,17 @@
               "type": "git-view",
               "state": {}
             }
+          },
+          {
+            "id": "28f402e5ba1b58ba",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -131,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/EnumerationConnectionStabilization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -148,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/EnumerationConnectionStabilization.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,12 +168,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "13f452a32fa00e9e",
+  "active": "1efab68120e3a30f",
   "lastOpenFiles": [
-    "Cmd Line/Windows.md",
-    "Cmd Line/Meterpreter commands.md",
+    "OSINT/OSINT.md",
     "Cmd Line/EnumerationConnectionStabilization.md",
     "Cmd Line/CLI Commands.md",
+    "OSINT",
+    "Cmd Line/Windows.md",
+    "Cmd Line/Meterpreter commands.md",
     "Cmd Line/Privilege Escalation.md",
     "Cmd Line/Tools.md",
     "Checklist/Privilege Escalation Checklist.md",
