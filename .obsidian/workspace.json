@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "2198c1e059b7cc48",
+        "id": "90cbbe18f767c20c",
         "type": "tabs",
         "children": [
           {
-            "id": "13f452a32fa00e9e",
+            "id": "1418bdd1756b8964",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSINT/OSINT.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3062168b1ee7a6fb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Web Exploits.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -61,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ffuf",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/CLI Commands.md"
+                "file": "Cmd Line/Web Exploits.md"
               }
             }
           },
@@ -127,7 +114,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Web Exploits.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -144,7 +131,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Web Exploits.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -167,18 +154,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3062168b1ee7a6fb",
+  "active": "1418bdd1756b8964",
   "lastOpenFiles": [
     "Cmd Line/EnumerationConnectionStabilization.md",
-    "OSINT/OSINT.md",
     "Cmd Line/CLI Commands.md",
+    "Blue Team/WebApp Hardening.md",
+    "Blue Team/Blue Team Linux Notes.md",
+    "OSINT/OSINT.md",
+    "Cmd Line/Web Exploits.md",
+    "Cmd Line/Meterpreter commands.md",
+    "Cmd Line/Web Exploits/Untitled.md",
+    "Cmd Line/Web Exploits",
     "OSINT",
     "Cmd Line/Windows.md",
-    "Cmd Line/Meterpreter commands.md",
     "Cmd Line/Privilege Escalation.md",
     "Cmd Line/Tools.md",
     "Checklist/Privilege Escalation Checklist.md",
-    "Blue Team/Blue Team Linux Notes.md",
     "Diamond Attack Model/Defense.md",
     "GTFOBins.md",
     "Checklist",
@@ -198,10 +189,8 @@
     "Diamond Attack Model",
     "Security+/Risk assessments.md",
     "Security+/Automated indicator sharing.md",
-    "Security+/Attack Frameworks.md",
     "Untitled.canvas",
     "Command Notes",
-    "Untitled 1.md",
     "Security+"
   ]
 }
