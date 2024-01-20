@@ -23,6 +23,10 @@ CAPTCHA cracker
 (requires training data for ML)
 https://github.com/WithSecureLabs/captcha22
 
+`feroxbuster
+recursive URL content discovery tool.
+
+
 
 ---
 # Log Analysis from the CLI using Silk
@@ -128,7 +132,7 @@ The services command used with the `-S` parameter will allow you to search for s
 services -S netbios
 ```
 
-You may want to look for low-hanging fruits such as:
+Look for low-hanging fruits such as:
 
 - HTTP: Could potentially host a web application where you can find vulnerabilities like SQL injection or Remote Code Execution (RCE). 
 - FTP: Could allow anonymous login and provide access to interesting files. 
