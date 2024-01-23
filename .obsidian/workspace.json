@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/Web Exploits.md",
+                "file": "Cmd Line/EnumerationConnection&Stabilization.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "nikt",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -63,7 +63,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/Web Exploits.md"
+                "file": "Cmd Line/EnumerationConnection&Stabilization.md"
               }
             }
           },
@@ -83,7 +83,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -114,7 +115,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/Web Exploits.md",
+                "file": "Cmd Line/EnumerationConnection&Stabilization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +132,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/Web Exploits.md",
+                "file": "Cmd Line/EnumerationConnection&Stabilization.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,12 +155,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1418bdd1756b8964",
+  "active": "1efab68120e3a30f",
   "lastOpenFiles": [
-    "Cmd Line/EnumerationConnection&Stabilization.md",
     "Cmd Line/Web Exploits.md",
-    "Cmd Line/Tools.md",
+    "Cmd Line/EnumerationConnection&Stabilization.md",
+    "Checklist/Privilege Escalation Checklist.md",
     "Cmd Line/Privilege Escalation.md",
+    "Cmd Line/Tools.md",
     "Diamond Attack Model/Attack.md",
     "Cmd Line/CLI Commands.md",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
@@ -171,7 +173,6 @@
     "Cmd Line/Web Exploits",
     "OSINT",
     "Cmd Line/Windows.md",
-    "Checklist/Privilege Escalation Checklist.md",
     "Diamond Attack Model/Defense.md",
     "GTFOBins.md",
     "Checklist",

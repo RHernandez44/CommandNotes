@@ -92,10 +92,9 @@ An important Gobuster switch here is the -x switch, which can be used to look fo
 
 ### Subdomains
 
-```
+
 gobuster dns
-```
->gobuster dns -d mydomain.thm -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
+`gobuster dns -d mydomain.thm -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
 - -c	--show-cname
 Show CNAME Records (cannot be used with '-i' option)
 - -i	--show-ips
