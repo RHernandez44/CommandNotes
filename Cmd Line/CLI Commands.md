@@ -137,6 +137,11 @@ How to add hostname
 
 # IP Info
 
+find IP address of a domain name
+`nslookup DOMAIN_NAME`
+`nslookup OPTIONS DOMAIN_NAME SERVER`
+`nslookup -type=a tryhackme.com 1.1.1.1`
+
 `ifconfig`
 Unix-like operating systems, displays or configures IP settings for network interfaces.
 

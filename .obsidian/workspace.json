@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nikt",
+                "query": "brutefor",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,8 +83,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -155,15 +154,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1efab68120e3a30f",
+  "active": "1418bdd1756b8964",
   "lastOpenFiles": [
-    "Cmd Line/Web Exploits.md",
+    "Cmd Line/CLI Commands.md",
     "Cmd Line/EnumerationConnection&Stabilization.md",
+    "Cmd Line/Web Exploits.md",
     "Checklist/Privilege Escalation Checklist.md",
     "Cmd Line/Privilege Escalation.md",
     "Cmd Line/Tools.md",
     "Diamond Attack Model/Attack.md",
-    "Cmd Line/CLI Commands.md",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Blue Team/WebApp Hardening.md",
     "Blue Team/Blue Team Linux Notes.md",
