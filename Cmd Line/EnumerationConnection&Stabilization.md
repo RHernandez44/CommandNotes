@@ -13,7 +13,7 @@ see every intermediate step between your computer
 and the resource that you requested
 `traceroute
 
-nmap [host / ip]
+### nmap [host / ip]
 
 - -p 80 --scans port 80
 - -p- scans all ports
@@ -23,7 +23,7 @@ nmap [host / ip]
 - --top-ports [number] 		Scan [number] most common ports
 - -sL: List Scan - simply list targets to scan
 - -sn: Ping Scan - disable port scan
-- sS    stealth scan/TCP SYN Scan
+- -sS    stealth scan/TCP SYN Scan
 
 `nmap $ip -p- -A -v -top-ports 100`
 
@@ -37,12 +37,33 @@ Run all the scripts within a category
 `nmap --script discovery 192.168.122.1`
 
 
+![[Screenshot 2024-01-26 133046.png]]
+
+
+#### ARP Scanning for subnets
+
+ARP scan is possible only if you are on the same subnet as the target systems
+
+Discover all the live systems on the same subnet as our target machine
+`sudo nmap -PR -sn 10.10.210.6/24
+
+
+
+
 ---
 
 ### NFS 
 
 scan NFS or RPC binds 
 `nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.136.6
+
+send ARP queries to all valid IP addresses on your local networks
+`arp-scan -l`
+
+send ARP queries for all valid IP addresses on the `eth0` interface.
+`sudo arp-scan -I eth0 -l` 
+
+
 
 ---
 ### WordPress blogs~
@@ -202,6 +223,15 @@ dig
 https://dnsdumpster.com/
 
 https://www.shodan.io/
+
+telnet
+`telnet 10.10.2.122 80
+`GET / HTTP/1.1
+`host: raz
+you dont have to use port 80
+you can connect to any port, then run commands using that ports service e.g. SMTP, POP3
+
+
 
 
 

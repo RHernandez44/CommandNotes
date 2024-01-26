@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "brutefor",
+                "query": "nmap",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,7 +83,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -156,8 +157,10 @@
   },
   "active": "1418bdd1756b8964",
   "lastOpenFiles": [
-    "Cmd Line/CLI Commands.md",
+    "Screenshot 2024-01-26 133046.png",
+    "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/EnumerationConnection&Stabilization.md",
+    "Cmd Line/CLI Commands.md",
     "Cmd Line/Web Exploits.md",
     "Checklist/Privilege Escalation Checklist.md",
     "Cmd Line/Privilege Escalation.md",
@@ -165,7 +168,6 @@
     "Diamond Attack Model/Attack.md",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Blue Team/WebApp Hardening.md",
-    "Blue Team/Blue Team Linux Notes.md",
     "OSINT/OSINT.md",
     "Cmd Line/Meterpreter commands.md",
     "Cmd Line/Web Exploits/Untitled.md",
