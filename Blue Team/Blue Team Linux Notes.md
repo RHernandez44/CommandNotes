@@ -63,3 +63,14 @@ tshark,
 tcpdump
 ```
 
+
+
+# Firewalls
+
+An intrusion detection system (IDS) inspects network packets for select behavioural patterns or specific content signatures. It raises an alert whenever a malicious rule is met. 
+
+In addition to the IP header and transport layer header, an IDS would inspect the data contents in the transport layer and check if it matches any malicious patterns. 
+
+Depending on the type of firewall/IDS, you might benefit from dividing the packet into smaller packets.
+
+

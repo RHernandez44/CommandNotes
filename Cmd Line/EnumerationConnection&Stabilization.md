@@ -24,6 +24,8 @@ and the resource that you requested
 - -sL: List Scan - simply list targets to scan
 - -sn: Ping Scan - disable port scan
 - -sS    stealth scan/TCP SYN Scan
+- -f, -ff:    Fragments packets into 8 or 16 bytes to avoid Firewall IDS
+
 
 `nmap $ip -p- -A -v -top-ports 100`
 
@@ -35,6 +37,10 @@ Runs all most popular scripts
 
 Run all the scripts within a category
 `nmap --script discovery 192.168.122.1`
+
+`--reason` if you want Nmap to provide more details regarding its reasoning and conclusions
+
+
 
 
 ![[Screenshot 2024-01-26 133046.png]]
@@ -52,6 +58,42 @@ Discover all the live systems on the same subnet as our target machine
 Scan will send ICMP echo packets to every IP address on the subnet
 `nmap -PE -sn MACHINE_IP/24`. 
 
+#### Spoof IP Origin
+
+specify the network interface using `-e` and to explicitly disable ping scan `-Pn`
+`nmap -e NET_INTERFACE -Pn -S SPOOFED_IP 10.10.129.232` 
+tell Nmap explicitly which network interface to use and not to expect to receive a ping reply.
+this scan will be useless if the attacker system cannot *monitor the network for responses*.
+
+When on the same subnet as the target machine, spoof your MAC address using
+`--spoof-mac SPOOFED_MAC`
+
+Decoy scan
+`nmap -D 10.10.0.1,10.10.0.2,ME 10.10.129.232`
+`nmap -D 10.10.0.1,10.10.0.2,RND,RND,ME 10.10.129.232`
+
+zombie scan
+`nmap -sI ZOMBIE_IP 10.10.129.232`
+
+
+
+
+| Port Scan Type | Example Command |
+| ---- | ---- |
+| TCP Null Scan | `sudo nmap -sN 10.10.254.98` |
+| TCP FIN Scan | `sudo nmap -sF 10.10.254.98` |
+| TCP Xmas Scan | `sudo nmap -sX 10.10.254.98` |
+| TCP Maimon Scan | `sudo nmap -sM 10.10.254.98` |
+| TCP ACK Scan | `sudo nmap -sA 10.10.254.98` |
+| TCP Window Scan | `sudo nmap -sW 10.10.254.98` |
+| Custom TCP Scan | `sudo nmap --scanflags URGACKPSHRSTSYNFIN 10.10.254.98` |
+| Spoofed Source IP | `sudo nmap -S SPOOFED_IP 10.10.254.98` |
+| Spoofed MAC Address | `--spoof-mac SPOOFED_MAC` |
+| Decoy Scan | `nmap -D DECOY_IP,ME 10.10.254.98` |
+| Idle (Zombie) Scan | `sudo nmap -sI ZOMBIE_IP 10.10.254.98` |
+| Fragment IP data into 8 bytes | `-f` |
+| Fragment IP data into 16 bytes | `-ff` |
+| `--source-port PORT_NUM` | specify port number  |
 
 
 | ARP Scan | `sudo nmap -PR -sn MACHINE_IP/24` |
