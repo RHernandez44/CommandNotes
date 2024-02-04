@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nmap",
+                "query": "FTP",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -156,14 +156,14 @@
   },
   "active": "1418bdd1756b8964",
   "lastOpenFiles": [
-    "Blue Team/Blue Team Linux Notes.md",
+    "Cmd Line/Tools.md",
+    "Cmd Line/CLI Commands.md",
     "Cmd Line/EnumerationConnection&Stabilization.md",
+    "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/Privilege Escalation.md",
     "Cmd Line/Meterpreter commands.md",
     "Screenshot 2024-01-26 133046.png",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
-    "Cmd Line/Tools.md",
-    "Cmd Line/CLI Commands.md",
     "Cmd Line/Web Exploits.md",
     "Checklist/Privilege Escalation Checklist.md",
     "Diamond Attack Model/Attack.md",

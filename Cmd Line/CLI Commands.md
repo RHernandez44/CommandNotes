@@ -346,6 +346,53 @@ remotes into IP
 
 **Then connecting via RDP, use THM\Administrator as the username to specify you want to log in using the user Administrator on the THM domain.**
 
+## FTP
+
+common FTP server host software:
+- [vsftpd](https://security.appspot.com/vsftpd.html)
+- [ProFTPD](http://www.proftpd.org/)
+- [uFTP](https://www.uftpserver.com/)
+
+connect
+`ftp frank@10.10.126.132
+
+get files
+`get README.txt 
+
+`STAT` can provide some added information.  
+`SYST` command shows the System Type of the target (UNIX in this case). 
+`PASV` switches the mode to passive. 
+- Active: In the active mode, the data is sent over a separate channel originating from the FTP server’s port 20.
+- Passive: In the passive mode, the data is sent over a separate channel originating from an FTP client’s port above port number 1023.
+
+ `TYPE A` switches the file transfer mode to ASCII, while 
+ `TYPE I` switches the file transfer mode to binary.
+
+
+## SMTP
+
+1. Simple Mail Transfer Protocol (SMTP)
+2. Post Office Protocol version 3 (POP3)
+3. Internet Message Access Protocol (IMAP)
+
+connect using telnet 
+`telnet 10.10.126.132 25
+
+### POP3
+`STAT`, we get the reply `+OK 1 179`;
+a positive response to `STAT` has the format `+OK nn mm`, where _nn_ is the number of email messages in the inbox, and _mm_ is the size of the inbox in octets (byte). 
+`LIST` provided a list of new messages on the server
+`RETR 1` retrieved the first message in the list.
+
+### IMAP 
+
+Internet Message Access Protocol (IMAP) is more sophisticated than POP3. IMAP makes it possible to keep your email synchronized across multiple devices (and mail clients).
+
+MAP requires each command to be preceded by a random string to be able to track the reply. So add `c1`, then `c2`, and so on
+
+`LOGIN username password`
+`LIST "" "*"`
+`EXAMINE INBOX`
 
 
 ---

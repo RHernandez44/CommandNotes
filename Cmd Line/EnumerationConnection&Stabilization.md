@@ -35,8 +35,30 @@ Runs a vulnerability test using a script
 Runs all most popular scripts
 `nmap -sC 192.168.122.1`
 
+location of all nmap scripts
+`/usr/share/nmap/scripts`
+
 Run all the scripts within a category
 `nmap --script discovery 192.168.122.1`
+
+
+|Script Category|Description|
+|---|---|
+|`auth`|Authentication related scripts|
+|`broadcast`|Discover hosts by sending broadcast messages|
+|`brute`|Performs brute-force password auditing against logins|
+|`default`|Default scripts, same as `-sC`|
+|`discovery`|Retrieve accessible information, such as database tables and DNS names|
+|`dos`|Detects servers vulnerable to Denial of Service (DoS)|
+|`exploit`|Attempts to exploit various vulnerable services|
+|`external`|Checks using a third-party service, such as Geoplugin and Virustotal|
+|`fuzzer`|Launch fuzzing attacks|
+|`intrusive`|Intrusive scripts such as brute-force attacks and exploitation|
+|`malware`|Scans for backdoors|
+|`safe`|Safe scripts that won’t crash the target|
+|`version`|Retrieve service versions|
+|`vuln`|Checks for vulnerabilities or exploit vulnerable services|
+
 
 `--reason` if you want Nmap to provide more details regarding its reasoning and conclusions
 
@@ -359,7 +381,18 @@ wfuzz -c -z file,usernames.txt -z file,passwords.txt --hs "Please enter the corr
 
 ## Hydra
 
+`hydra -l username -P wordlist.txt server service`
+
 `hydra -l jan -P ~/rockyou/rockyou.txt -f -v ssh://10.10.37.200
+
+- `hydra -l mark -P /usr/share/wordlists/rockyou.txt 10.10.211.141 ftp` will use `mark` as the username as it iterates over the provided passwords against the FTP server.
+- `hydra -l mark -P /usr/share/wordlists/rockyou.txt ftp://10.10.211.141` is identical to the previous example. `10.10.211.141 ftp` is the same as `ftp://10.10.211.141`.
+- `hydra -l frank -P /usr/share/wordlists/rockyou.txt 10.10.211.141 ssh` will use `frank` as the user name as it tries to login via SSH using the different passwords.
+
+- `-s PORT` to specify a non-default port for the service in question.
+- `-V` or `-vV`, for verbose, makes Hydra show the username and password combinations that are being tried. This verbosity is very convenient to see the progress, especially if you are still not confident of your command-line syntax.
+- `-t n` where n is the number of parallel connections to the target. `-t 16` will create 16 threads used to connect to the target.
+- `-d`, for debugging, to get more detailed information about what’s going on. The debugging output can save you much frustration; for instance, if Hydra tries to connect to a closed port and timing out, `-d` will reveal this right away.
 
 ---
 
