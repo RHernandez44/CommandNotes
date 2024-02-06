@@ -1,7 +1,77 @@
 https://tryhackme.com/room/linuxprivesc
 # Enumerate
 
-### Find all SUID/GUID executables
+## Initial commands to use
+
+find hostname
+`hostname`
+
+kernel info
+`uname -a`
+
+may give you kernel version and additional data such as whether a compiler (e.g. GCC) is installed.
+`/proc/version`
+
+processes tree
+`ps axjf`
+show which user launch processes and processes not attached to a terminal
+`ps aux
+
+show env variables
+`env`
+
+shows commands that run with root privileges 
+`sudo -l`
+`id`
+
+users pass file
+`/etc/passwd
+filters for users
+`cat /etc/passwd | cut -d ":" -f 1
+`cat /etc/passwd | grep home
+
+show used commands
+``history``
+
+command will give us information about the network interfaces
+`ifconfig` 
+
+lists ports in listening mode 
+`netstat -ltp`
+
+try open rootshell
+`/bin/bash -p`
+
+## Find
+
+**Find files:**
+
+- `find . -name flag1.txt`: find the file named “flag1.txt” in the current directory
+- `find /home -name flag1.txt`: find the file names “flag1.txt” in the /home directory
+- `find / -type d -name config`: find the directory named config under “/”
+- `find / -type f -perm 0777`: find files with the 777 permissions (files readable, writable, and executable by all users)
+- `find / -perm a=x`: find executable files
+- `find /home -user frank`: find all files for user “frank” under “/home”
+- `find / -mtime 10`: find files that were modified in the last 10 days
+- `find / -atime 10`: find files that were accessed in the last 10 day
+- `find / -cmin -60`: find files changed within the last hour (60 minutes)
+- `find / -amin -60`: find files accesses within the last hour (60 minutes)
+- `find / -size 50M`: find files with a 50 MB size
+- `find / -size +50M`: find files larger than 50 MB size
+- `find / -writable -type d 2>/dev/null` : Find world-writeable folders
+- `find / -perm -222 -type d 2>/dev/null`: Find world-writeable folders
+- `find / -perm -o w -type d 2>/dev/null`: Find world-writeable folders
+- `find / -perm -o x -type d 2>/dev/null` : Find world-executable folders
+- `find / -name perl*`
+- `find / -name python*`
+- `find / -name gcc*`
+- 
+
+>The “find” command tends to generate errors which sometimes makes the output hard to read. This is why it would be wise to use the “find” command with `-type f 2>/dev/null`
+
+
+
+## Find all SUID/GUID executables
 `find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
 OR
 `find / -perm /4000 2> /dev/null`
@@ -9,7 +79,7 @@ OR
 `find / -user root -perm -4000 -exec ls -ldb {} \;
 OR
 `find / -perm -u=s -type f 2>/dev/null
-### SSH Keys
+## SSH Keys
 On Linux ideally we would be looking for opportunities to gain access to a user account. 
 SSH keys stored at `/home/<user>/.ssh` 
 
@@ -19,10 +89,6 @@ Some exploits will also allow you to add your own account. In particular somethi
 
 shows current users permissions
 `sudo -l
-
-### Open Root Shell
-
-use `/bin/bash -p`
 
 ## LSE.sh
 

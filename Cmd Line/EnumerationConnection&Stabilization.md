@@ -41,6 +41,13 @@ location of all nmap scripts
 Run all the scripts within a category
 `nmap --script discovery 192.168.122.1`
 
+Scan to avoid IDS
+`sudo nmap -vv -f -D RND:5 -T3 -sN 10.10.197.143
+- Set verbosity to very verbose `-vv`
+- Use tiny fragmented IP packets `-f`
+- Decoy scan with random IPs (`RND:5`) `-D`
+- Set timing to normal `-T3`
+- Stealth null scan `-sN
 
 |Script Category|Description|
 |---|---|
@@ -332,6 +339,8 @@ Brute force attack against MS-SQL:
 
 FTP brute force attack:
 `nmap --script ftp-brute -p 21 192.168.1.105`
+
+
 ## CeWL
 
 ```
