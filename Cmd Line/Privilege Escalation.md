@@ -8,9 +8,10 @@ find hostname
 
 kernel info
 `uname -a`
-
 may give you kernel version and additional data such as whether a compiler (e.g. GCC) is installed.
 `/proc/version`
+OS info
+`cat /etc/issue`
 
 processes tree
 `ps axjf`
