@@ -66,9 +66,13 @@ try open rootshell
 - `find / -name perl*`
 - `find / -name python*`
 - `find / -name gcc*`
-- 
 
 >The “find” command tends to generate errors which sometimes makes the output hard to read. This is why it would be wise to use the “find” command with `-type f 2>/dev/null`
+
+contains ssh configurations such as: PasswordAurhentication
+	`etc/ssh/ssshd_config
+A plain text file It contains a list of the system’s accounts, giving for each account some useful information like user ID, group ID, home directory, shell, and more.
+	`/etc/passwd` 
 
 
 
@@ -532,19 +536,14 @@ Note that the **/tmp** share has root squashing disabled.
 
 
 ---
-# Handy Nix Files
 
-https://tryhackme.com/room/linuxprivesc
-
-contains ssh configurations such as: PasswordAurhentication
-	`etc/ssh/ssshd_config
-A plain text file It contains a list of the system’s accounts, giving for each account some useful information like user ID, group ID, home directory, shell, and more.
-	`/etc/passwd` 
-
-## New priv
-
-
-
+# Priv Esc Tools
+- https://tryhackme.com/room/linuxprivesc
+- **LinPeas**: [https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
+- **LinEnum:** [https://github.com/rebootuser/LinEnum](https://github.com/rebootuser/LinEnum)[](https://github.com/rebootuser/LinEnum)
+- **LES (Linux Exploit Suggester):** [https://github.com/mzet-/linux-exploit-suggester](https://github.com/mzet-/linux-exploit-suggester)
+- **Linux Smart Enumeration:** [https://github.com/diego-treitos/linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
+- **Linux Priv Checker:** [https://github.com/linted/linuxprivchecker](https://github.com/linted/linuxprivchecker)
 
 ---
 ## Windows 
