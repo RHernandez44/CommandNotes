@@ -339,12 +339,8 @@ mysql -h [IP] -u [username] -p
 ## Remote Desktop - RDP
 
 ```
-rdesktop 10.10.180.211 -u THM\Administrator -p Password123
+xfreerdp /u:thm-unpriv /p:Password321 /v:10.10.191.159 /dynamic-resolution
 ```
-
-remotes into IP
-
-**Then connecting via RDP, use THM\Administrator as the username to specify you want to log in using the user Administrator on the THM domain.**
 
 ## FTP
 

@@ -1,7 +1,6 @@
 # Google Dorks
 
   
-
 Go to [Google](https://www.google.com/) and use the search term `**-site:www.tryhackme.com  site:*.tryhackme.com**, `which should reveal a subdomain for tryhackme.com
 
 
@@ -15,16 +14,15 @@ whois santagift.shop
 ```
 
 
-uses database to display public domain info
+# CLI Tools
 
+uses database to display public domain info
 >https://who.is/
 
-robots.txt 
-
 provides sitemap info
+`robots.txt 
 
 > Searching GitHub Repos
-
 Search various terms on GitHub to find something useful
 
 |Tool | Purpose |
@@ -42,6 +40,11 @@ Search various terms on GitHub to find something useful
 sudo go run mosint vivian@gmail.com
 ```
 >need to cd into mosint directory first
+
+### Sherlock
+used to Hunt down social media accounts by username across [social networks](https://github.com/sherlock-project/sherlock/blob/master/sites.md)
+`python3 sherlock a_payt --nsfw
+
 
 # Email Analysis
 

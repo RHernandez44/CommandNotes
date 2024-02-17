@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Windows.md",
                 "mode": "source",
                 "source": false
               }
@@ -61,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "find",
+                "query": "rdp",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +76,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cmd Line/CLI Commands.md"
+                "file": "Cmd Line/Windows.md"
               }
             }
           },
@@ -128,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Windows.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
+                "file": "Cmd Line/Windows.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,23 +170,23 @@
   },
   "active": "2d35a25502e8208c",
   "lastOpenFiles": [
-    "Cmd Line/Privilege Escalation.md",
     "Cmd Line/CLI Commands.md",
+    "Cmd Line/Windows.md",
+    "Checklist/Privilege Escalation Checklist.md",
     "Cmd Line/EnumerationConnection&Stabilization.md",
+    "OSINT/OSINT.md",
+    "Cmd Line/Privilege Escalation.md",
     "Cmd Line/Tools.md",
     "Blue Team/Blue Team Linux Notes.md",
     "Cmd Line/Meterpreter commands.md",
     "Screenshot 2024-01-26 133046.png",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Cmd Line/Web Exploits.md",
-    "Checklist/Privilege Escalation Checklist.md",
     "Diamond Attack Model/Attack.md",
     "Blue Team/WebApp Hardening.md",
-    "OSINT/OSINT.md",
     "Cmd Line/Web Exploits/Untitled.md",
     "Cmd Line/Web Exploits",
     "OSINT",
-    "Cmd Line/Windows.md",
     "Diamond Attack Model/Defense.md",
     "GTFOBins.md",
     "Checklist",
