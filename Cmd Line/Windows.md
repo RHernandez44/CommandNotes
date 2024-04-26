@@ -36,6 +36,11 @@ These store credentials:
 - `C:\Windows\system32\sysprep\sysprep.xml
 
 
+#### index.dat 
+Shows files navigated to by the user
+- `C:\Users\rjhan\AppData\Roaming\Microsoft\Office\Recent\index.dat`
+
+
 ---
 # Enumeration
 
