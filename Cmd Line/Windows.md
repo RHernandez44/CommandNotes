@@ -40,6 +40,9 @@ These store credentials:
 # Enumeration
 
 ## Tools
+
+https://medium.com/@jamesjarviscyber/windows-privilege-escalation-tryhackme-96e9f8eaeb27
+
 [pentest monkey windows scanner](https://github.com/pentestmonkey/windows-privesc-check)
 
 https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Privesc/PowerUp.ps1

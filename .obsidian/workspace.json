@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cmd Line/CLI Commands.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2d35a25502e8208c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "Cmd Line/Windows.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,8 +83,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -168,9 +154,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2d35a25502e8208c",
+  "active": "1418bdd1756b8964",
   "lastOpenFiles": [
     "Cmd Line/CLI Commands.md",
+    "2024-04-26.md",
+    "Untitled.canvas",
     "Cmd Line/Windows.md",
     "Checklist/Privilege Escalation Checklist.md",
     "Cmd Line/EnumerationConnection&Stabilization.md",
@@ -203,8 +191,6 @@
     "Security+/Threat intelligence sources.md",
     "Security+/Vulnerability Assessment.md",
     "Diamond Attack Model",
-    "Security+/Risk assessments.md",
-    "Untitled.canvas",
     "Command Notes",
     "Security+"
   ]
