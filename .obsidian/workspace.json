@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "90cbbe18f767c20c",
+        "id": "c478175946f7dced",
         "type": "tabs",
         "children": [
           {
-            "id": "1418bdd1756b8964",
+            "id": "c199d1877307b4f5",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "CTF Strategies/CLI Commands.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLI Commands"
             }
           }
         ]
@@ -64,19 +68,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "CTF Strategies/CLI Commands.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
-            }
-          },
-          {
-            "id": "b4895d9d80ee5fae",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Outline of CLI Commands"
             }
           },
           {
@@ -89,8 +85,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -166,43 +161,42 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1418bdd1756b8964",
+  "active": "50013aafa6a808f2",
   "lastOpenFiles": [
-    "Blue Team/Tools.md",
+    "OSINT/OSINT.md",
+    "Diamond Attack Model/Defense.md",
+    "Diamond Attack Model/Attack.md",
+    "Checklist/Privilege Escalation Checklist.md",
     "Blue Team/WebApp Hardening.md",
-    "Blue Team/Blue Team Linux Notes.md",
-    "Cmd Line/CLI Commands.md",
+    "Blue Team/Tools.md",
+    "Blue Team/Blue Team Linux.md",
+    "956e1914b116cbc9e564e3bb3d9ab50a.png",
+    "Screenshot 2024-01-26 133046.png",
+    "This is the new Git.md",
+    "CTF Strategies/CLI Commands.md",
     "2024-04-26.md",
     "Untitled.canvas",
-    "Cmd Line/Windows.md",
-    "Checklist/Privilege Escalation Checklist.md",
-    "Cmd Line/EnumerationConnection&Stabilization.md",
-    "OSINT/OSINT.md",
-    "Cmd Line/Privilege Escalation.md",
-    "Cmd Line/Tools.md",
-    "Cmd Line/Meterpreter commands.md",
-    "Screenshot 2024-01-26 133046.png",
-    "956e1914b116cbc9e564e3bb3d9ab50a.png",
-    "Cmd Line/Web Exploits.md",
-    "Diamond Attack Model/Attack.md",
+    "CTF Strategies/Windows.md",
+    "CTF Strategies/EnumerationConnection&Stabilization.md",
+    "CTF Strategies/Privilege Escalation.md",
+    "CTF Strategies/Tools.md",
+    "CTF Strategies/Meterpreter commands.md",
+    "CTF Strategies/Web Exploits.md",
     "Cmd Line/Web Exploits/Untitled.md",
     "Cmd Line/Web Exploits",
     "OSINT",
-    "Diamond Attack Model/Defense.md",
     "GTFOBins.md",
     "Checklist",
     "Cmd Line/Git.md",
     "Cmd Line/Reverse Engineering.md",
     "Cmd Line/~$Git.md",
-    "Cmd Line",
+    "CTF Strategies",
     "CommandNotes",
     "Command Notes/Tools.md",
     "Command Notes/Linux Notes.md",
     "Command Notes/Windows.md",
     "Command Notes/Labs Notes.md",
     "Blue Team",
-    "Security+/Threat intelligence sources.md",
-    "Security+/Vulnerability Assessment.md",
     "Diamond Attack Model",
     "Command Notes",
     "Security+"
