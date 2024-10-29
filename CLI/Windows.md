@@ -64,3 +64,14 @@ Get-SMBShare
     ```
 
 ---
+
+# Encrypted files
+
+To view the encryption status of the objects in the current working folder, run the command:
+```-notab-nocolor
+cipher
+```
+Decrypt Jan-Security.txt by running the command:
+```-notab-nocolor
+cipher /d Jan-Security.txt
+```

@@ -243,6 +243,11 @@ logs access information, ip of logins etc
 
 >`password hashes are stored in /etc/shadow
 
+- Modern Linux systems salt password hashes by default. The most common default hashing scheme of Linux is yescrypt. This is confirmed in the output by the "_y_ " between the first two dollar signs. The "_j9T_ " value between the second and third dollar signs are parameters used during the hashing process. The value between the third and fourth dollar signs is the salt used when producing the hash. Then, the value after the fourth dollar sign (until the colon) is the salted password hash.
+```
+ryan:$y$j9T$h9o1ZcyOA/GMHwdqsE0oc/$kuogrJK0ZvaWfFD7GiUT/slZFxpd49fQMFBLmGmywE9:20019:0:99999:7:::
+```
+
 shows logs
 >`/var/log
 

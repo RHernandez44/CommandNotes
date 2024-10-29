@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF Strategies/EnumerationConnection&Stabilization.md",
+                "file": "CLI/Unix.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "EnumerationConnection&Stabilization"
+              "title": "Unix"
             }
           }
         ]
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "rdp",
+                "query": "shadow",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,10 +69,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CTF Strategies/EnumerationConnection&Stabilization.md"
+                "file": "CLI/Unix.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of EnumerationConnection&Stabilization"
+              "title": "Outline of Unix"
             }
           },
           {
@@ -85,7 +85,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -163,11 +164,12 @@
   },
   "active": "c199d1877307b4f5",
   "lastOpenFiles": [
-    "CTF Strategies/Windows.md",
+    "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/EnumerationConnection&Stabilization.md",
+    "CLI/Windows.md",
+    "CTF Strategies/Windows.md",
     "CTF Strategies/Web Exploits.md",
     "CTF Strategies/Meterpreter commands.md",
-    "CLI/Windows.md",
     "CLI/Unix.md",
     "CTF Strategies/Windows/Untitled.md",
     "CTF Strategies/Windows",
@@ -187,7 +189,6 @@
     "This is the new Git.md",
     "2024-04-26.md",
     "Untitled.canvas",
-    "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/Tools.md",
     "Cmd Line/Web Exploits/Untitled.md",
     "Cmd Line/Web Exploits",
