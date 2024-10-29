@@ -73,4 +73,23 @@ In addition to the IP header and transport layer header, an IDS would inspect th
 
 Depending on the type of firewall/IDS, you might benefit from dividing the packet into smaller packets.
 
+# Create Windows Login Message
+
+- Right-click **Start**, and select **Windows PowerShell (Admin)**. At the UAC prompt, select **Yes**.
+    
+-  Enter the following code into the _Administrator: Windows PowerShell_ console:
+    
+    > Be sure to press **Enter** on your keyboard after each entry fully appears in the PowerShell console. There will not be any confirmation.
+
+``` powershell
+$BannerText = "This computer system is the property of Structureality Inc. It is for authorized use only. By using this system, all users acknowledge notice of and agree to comply with the Acceptable Use Policy (AUP). Unauthorized or improper use of this system may result in administrative disciplinary action, civil charges/criminal penalties, and/or other sanctions set forth in the AUP. By continuing to use this system, you indicate your awareness of and consent to these terms and conditions. If you are physically located in the European Union, you may have additional rights per the GDPR. Visit the website gdpr-info.eu for more information."
+```
+
+``` powershell 
+New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "legalnoticecaption" -Value "Authorized Use Only" -PropertyType "String" -Force | Out-Null
+```
+
+``` powershell    
+New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "legalnoticetext" -Value $BannerText -PropertyType "String" -Force | Out-Null
+```
 
