@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF Strategies/CLI Commands.md",
+                "file": "CTF Strategies/EnumerationConnection&Stabilization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CLI Commands"
+              "title": "EnumerationConnection&Stabilization"
             }
           }
         ]
@@ -69,10 +69,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CTF Strategies/CLI Commands.md"
+                "file": "CTF Strategies/EnumerationConnection&Stabilization.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of CLI Commands"
+              "title": "Outline of EnumerationConnection&Stabilization"
             }
           },
           {
@@ -161,8 +161,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "50013aafa6a808f2",
+  "active": "c199d1877307b4f5",
   "lastOpenFiles": [
+    "CTF Strategies/Windows.md",
+    "CTF Strategies/EnumerationConnection&Stabilization.md",
+    "CTF Strategies/Web Exploits.md",
+    "CTF Strategies/Meterpreter commands.md",
+    "CLI/Windows.md",
+    "CLI/Unix.md",
+    "CTF Strategies/Windows/Untitled.md",
+    "CTF Strategies/Windows",
+    "CLI/Windows",
+    "CLI/Unix",
+    "CLI",
+    "Blue Team/Blue Team Windows.md",
     "OSINT/OSINT.md",
     "Diamond Attack Model/Defense.md",
     "Diamond Attack Model/Attack.md",
@@ -173,15 +185,10 @@
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Screenshot 2024-01-26 133046.png",
     "This is the new Git.md",
-    "CTF Strategies/CLI Commands.md",
     "2024-04-26.md",
     "Untitled.canvas",
-    "CTF Strategies/Windows.md",
-    "CTF Strategies/EnumerationConnection&Stabilization.md",
     "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/Tools.md",
-    "CTF Strategies/Meterpreter commands.md",
-    "CTF Strategies/Web Exploits.md",
     "Cmd Line/Web Exploits/Untitled.md",
     "Cmd Line/Web Exploits",
     "OSINT",
@@ -194,11 +201,6 @@
     "CommandNotes",
     "Command Notes/Tools.md",
     "Command Notes/Linux Notes.md",
-    "Command Notes/Windows.md",
-    "Command Notes/Labs Notes.md",
-    "Blue Team",
-    "Diamond Attack Model",
-    "Command Notes",
-    "Security+"
+    "Blue Team"
   ]
 }
