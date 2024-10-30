@@ -75,3 +75,10 @@ Decrypt Jan-Security.txt by running the command:
 ```-notab-nocolor
 cipher /d Jan-Security.txt
 ```
+
+---
+# Docker
+To list all available images, in PowerShell, run 
+`docker images`
+Enter `Docker ps -a` to see a list of the current containers
+

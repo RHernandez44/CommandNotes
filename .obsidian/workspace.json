@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLI/Unix.md",
+                "file": "Security+/Acronyms.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unix"
+              "title": "Acronyms"
             }
           }
         ]
@@ -69,10 +69,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CLI/Unix.md"
+                "file": "Security+/Acronyms.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Unix"
+              "title": "Outline of Acronyms"
             }
           },
           {
@@ -85,8 +85,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -164,13 +163,17 @@
   },
   "active": "c199d1877307b4f5",
   "lastOpenFiles": [
+    "956e1914b116cbc9e564e3bb3d9ab50a.png",
+    "Security+/Acronyms.md",
+    "Security+/Attack Frameworks.md",
+    "Security+/Vulnerability Assessment.md",
+    "CLI/Windows.md",
+    "CLI/Unix.md",
     "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/EnumerationConnection&Stabilization.md",
-    "CLI/Windows.md",
     "CTF Strategies/Windows.md",
     "CTF Strategies/Web Exploits.md",
     "CTF Strategies/Meterpreter commands.md",
-    "CLI/Unix.md",
     "CTF Strategies/Windows/Untitled.md",
     "CTF Strategies/Windows",
     "CLI/Windows",
@@ -184,7 +187,6 @@
     "Blue Team/WebApp Hardening.md",
     "Blue Team/Tools.md",
     "Blue Team/Blue Team Linux.md",
-    "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Screenshot 2024-01-26 133046.png",
     "This is the new Git.md",
     "2024-04-26.md",
@@ -196,12 +198,8 @@
     "GTFOBins.md",
     "Checklist",
     "Cmd Line/Git.md",
-    "Cmd Line/Reverse Engineering.md",
-    "Cmd Line/~$Git.md",
     "CTF Strategies",
     "CommandNotes",
-    "Command Notes/Tools.md",
-    "Command Notes/Linux Notes.md",
     "Blue Team"
   ]
 }
