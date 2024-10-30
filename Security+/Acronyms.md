@@ -21,3 +21,17 @@ MAC
 IPSec
 - Internet Protocol Security (IPSec) provides confidentiality, sender authentication, and message integrity by functioning at the network level.
 
+NGFM
+- While a traditional firewall typically provides stateful inspection of incoming and outgoing network traffic, a next-generation firewall includes additional features like application awareness and control, integrated intrusion prevention, and cloud-delivered threat intelligence
+- Part of a Unified Threat Management (UTM) including network intrusion prevention system (IPS)
+
+EAP
+- The Extensible Authentication Protocol (EAP) provides a framework for deploying multiple types of authentication methods.
+- The Extensible Authentication Protocol (EAP) performs smart-card authentication without a password.
+
+ZTA
+- Zero Trust Architecture 
+
+RTOS
+- Real-Time Operation System
+
