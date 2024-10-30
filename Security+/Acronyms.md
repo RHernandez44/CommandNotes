@@ -35,3 +35,5 @@ ZTA
 RTOS
 - Real-Time Operation System
 
+SAN
+- Storage Area Network
