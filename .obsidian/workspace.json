@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security+/Acronyms.md",
+                "file": "CTF Strategies/Web Exploits.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Acronyms"
+              "title": "Web Exploits"
             }
           }
         ]
@@ -162,8 +162,9 @@
   },
   "active": "c199d1877307b4f5",
   "lastOpenFiles": [
-    "956e1914b116cbc9e564e3bb3d9ab50a.png",
+    "OSINT/OSINT.md",
     "Security+/Acronyms.md",
+    "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Security+/Attack Frameworks.md",
     "Security+/Vulnerability Assessment.md",
     "CLI/Windows.md",
@@ -179,7 +180,6 @@
     "CLI/Unix",
     "CLI",
     "Blue Team/Blue Team Windows.md",
-    "OSINT/OSINT.md",
     "Diamond Attack Model/Defense.md",
     "Diamond Attack Model/Attack.md",
     "Checklist/Privilege Escalation Checklist.md",
