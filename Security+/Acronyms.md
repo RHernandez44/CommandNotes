@@ -37,3 +37,19 @@ RTOS
 
 SAN
 - Storage Area Network
+
+MTD
+- Maximum tolerable downtime 
+
+RAID
+- redundant array of independant disks - combines multiple physical disk drives into one logical unit for the purpose of data redundancy
+
+BCP
+- Business Continuity Planning - pinpoints the most important parts of your business, identifies potential risks to these critical pieces and prepares you to recover as quick and easy as possible.
+
+DPO
+- Data Protection Officer
+
+COOP
+- Continuity of operations planning
+
