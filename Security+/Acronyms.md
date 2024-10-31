@@ -38,6 +38,7 @@ RTOS
 SAN
 - Storage Area Network
 
+<<<<<<< Updated upstream
 MTD
 - Maximum tolerable downtime 
 
@@ -53,3 +54,7 @@ DPO
 COOP
 - Continuity of operations planning
 
+=======
+SCAP
+- The security content automation protocol (SCAP) and common vulnerabilities and exposures (CVE) set standards to create a unified language for identifying and communicating software application vulnerabilities.
+>>>>>>> Stashed changes
