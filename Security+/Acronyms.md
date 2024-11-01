@@ -38,7 +38,6 @@ RTOS
 SAN
 - Storage Area Network
 
-<<<<<<< Updated upstream
 MTD
 - Maximum tolerable downtime 
 
@@ -54,7 +53,18 @@ DPO
 COOP
 - Continuity of operations planning
 
-=======
 SCAP
 - The security content automation protocol (SCAP) and common vulnerabilities and exposures (CVE) set standards to create a unified language for identifying and communicating software application vulnerabilities.
->>>>>>> Stashed changes
+
+NAC
+- Network Access Control By evaluating the operating system version, patch level, antivirus status, or the presence of specific security software, NAC ensures that devices meet a minimum set of security standards before being granted network access.
+
+SAE
+- Simultaneous authentication of equals - SAE is a feature of WPA3 that replaces the pre-shared key (PSK) exchange protocol in WPA2. SAE ensures attackers cannot intercept the Wi-Fi password even if they intercept the login.
+
+DDP
+- Wi-Fi Easy Connect, also known as Device Provisioning Protocol (DPP), replaces Wi-Fi Protected Setup. It uses quick response (QR) codes or near-field communication (NFC) tags to communicate public keys between devices.
+
+TPM
+- Trusted Platform Module (TPM). The TPM chip has a secure storage area to which a disk encryption program, such as Windows BitLocker, can write its keys.
+
