@@ -68,3 +68,6 @@ DDP
 TPM
 - Trusted Platform Module (TPM). The TPM chip has a secure storage area to which a disk encryption program, such as Windows BitLocker, can write its keys.
 
+IoCs
+- Indicators of Compromise
+
