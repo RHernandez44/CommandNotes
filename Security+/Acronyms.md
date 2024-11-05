@@ -1,4 +1,4 @@
-IAM
+*IAM*
 - identity and access management (IAM) system ensure the proper creation of accounts and their associated permissions.
 
 LDAP 
@@ -71,3 +71,5 @@ TPM
 IoCs
 - Indicators of Compromise
 
+fqdn
+- fully qualified domain name (FQDN), sometimes also referred to as an absolute domain name, is a domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
