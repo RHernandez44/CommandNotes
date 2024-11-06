@@ -1,5 +1,9 @@
 Handy Windows files
 
+Active Directory credential store
+`%SystemRoot%\System32\config\SAM
+`%SystemRoot%\NTDS\NTDS.DIT`
+
 shows logs
 `Event Viewer
 
