@@ -197,6 +197,12 @@ holds cronjob info
 
 crontabs have the following format:
 `<minute> <hour> <day of month> <month> <day of week> <user> <command>`
+
+add .sh file to cron
+```bash 
+echo "0 1 * * * /bin/bash /root/ip_block.sh" | crontab -
+```
+
 # Ps
 
 processes

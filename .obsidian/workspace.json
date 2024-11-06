@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Security+/Standards & Policy.md",
+                "file": "CLI/Unix.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Standards & Policy"
+              "title": "Unix"
             }
           }
         ]
@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "PS",
+                "query": "crontab",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -162,11 +163,12 @@
   },
   "active": "c199d1877307b4f5",
   "lastOpenFiles": [
-    "CTF Strategies/Windows.md",
+    "Checklist/Privilege Escalation Checklist.md",
+    "CTF Strategies/Meterpreter commands.md",
     "Security+/Standards & Policy.md",
+    "CTF Strategies/Windows.md",
     "Security+/Acronyms.md",
     "CLI/Unix.md",
-    "Checklist/Privilege Escalation Checklist.md",
     "CTF Strategies/Web Exploits.md",
     "OSINT/OSINT.md",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
@@ -175,7 +177,6 @@
     "CLI/Windows.md",
     "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/EnumerationConnection&Stabilization.md",
-    "CTF Strategies/Meterpreter commands.md",
     "CTF Strategies/Windows/Untitled.md",
     "CTF Strategies/Windows",
     "CLI/Windows",
