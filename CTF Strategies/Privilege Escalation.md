@@ -193,7 +193,7 @@ Notice the ***'S'***
 
 ctrl+F to find this part of your LinEnum scan
 
-[-] SUID files:
+## SUID files:
 -rwsr-xr-x 1 root root 30800 Aug 11 2016 /bin/fusermount
 -rwsr-xr-x 1 root root 8392 Jun 4 2019 /home/user5/script
 -rwsr-xr-x 1 root root 8392 Jun 4 2019 /home/user3/shell

@@ -73,6 +73,14 @@ In addition to the IP header and transport layer header, an IDS would inspect th
 
 Depending on the type of firewall/IDS, you might benefit from dividing the packet into smaller packets.
 
+## Use iptables to block incoming IPs
+
+ Enter the following to add a new iptables rule to block communications from the first IP address range from the feed:
+```bash
+iptables -A INPUT -s 5.134.128.0/19 -j DROP
+```
+
+Enter `iptables -S` to view current iptables rules
 # Create Windows Login Message
 
 - Right-click **Start**, and select **Windows PowerShell (Admin)**. At the UAC prompt, select **Yes**.

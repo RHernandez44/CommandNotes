@@ -52,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "crontab",
+                "query": "lfi",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,8 +85,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -163,19 +162,20 @@
   },
   "active": "c199d1877307b4f5",
   "lastOpenFiles": [
+    "CTF Strategies/Web Exploits.md",
+    "CTF Strategies/Privilege Escalation.md",
+    "Security+/Acronyms.md",
+    "Blue Team/Blue Team Linux.md",
+    "CLI/Unix.md",
     "Checklist/Privilege Escalation Checklist.md",
     "CTF Strategies/Meterpreter commands.md",
     "Security+/Standards & Policy.md",
     "CTF Strategies/Windows.md",
-    "Security+/Acronyms.md",
-    "CLI/Unix.md",
-    "CTF Strategies/Web Exploits.md",
     "OSINT/OSINT.md",
     "956e1914b116cbc9e564e3bb3d9ab50a.png",
     "Security+/Attack Frameworks.md",
     "Security+/Vulnerability Assessment.md",
     "CLI/Windows.md",
-    "CTF Strategies/Privilege Escalation.md",
     "CTF Strategies/EnumerationConnection&Stabilization.md",
     "CTF Strategies/Windows/Untitled.md",
     "CTF Strategies/Windows",
@@ -187,7 +187,6 @@
     "Diamond Attack Model/Attack.md",
     "Blue Team/WebApp Hardening.md",
     "Blue Team/Tools.md",
-    "Blue Team/Blue Team Linux.md",
     "Screenshot 2024-01-26 133046.png",
     "This is the new Git.md",
     "2024-04-26.md",

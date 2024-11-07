@@ -190,6 +190,7 @@ extracts tar files
 
 `crontab -l
 shows cron jobs
+
 https://crontab-generator.org/
 
 holds cronjob info
@@ -278,7 +279,16 @@ shows logs
 | /root/.ssh/id_rsa | Private SSH keys for a root or any known valid user on the server |
 | /var/log/apache2/access.log | the accessed requests for Apache  webserver |
 | C:\boot.ini | contains the boot options for computers with BIOS firmware |
+`/proc/version`
+Since every process has a file in the proc directory, you can retrieve lots of information through this technique. Experiment with the following filenames from the /proc directory:
 
+- cpuinfo
+- devices
+- locks
+- meminfo
+- misc
+- modules
+- uptime
 
 
 # Common Hash Prefixes

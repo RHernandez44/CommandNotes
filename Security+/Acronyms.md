@@ -73,3 +73,10 @@ IoCs
 
 fqdn
 - fully qualified domain name (FQDN), sometimes also referred to as an absolute domain name, is a domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
+
+MTD
+- Maximum Tolerable Downtime
+
+RPO
+- Recovery Point Objective the period of data loss that can be endured as a result of the disaster
+
