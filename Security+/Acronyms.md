@@ -80,3 +80,6 @@ MTD
 RPO
 - Recovery Point Objective the period of data loss that can be endured as a result of the disaster
 
+ARO
+- Annualized Rate of Occurrence, also known as ARO, refers to the expected frequency with which a risk or a threat is expected to occur
+

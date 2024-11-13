@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blue Team/Blue Team Windows.md",
+                "file": "CTF Strategies/EnumerationConnection&Stabilization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Blue Team Windows"
+              "title": "EnumerationConnection&Stabilization"
             }
           }
         ],
@@ -67,7 +67,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "meter",
+                "query": "metasplo",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,7 +104,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 236.5
   },
   "right": {
     "id": "18aee50c949f7c76",
@@ -177,13 +177,16 @@
   },
   "active": "98804a069b17aac4",
   "lastOpenFiles": [
-    "CLI/Unix.md",
+    "CTF Strategies/Tools.md",
+    "CTF Strategies/Meterpreter commands.md",
+    "CTF Strategies/EnumerationConnection&Stabilization.md",
     "CTF Strategies/Web Exploits.md",
-    "CTF Strategies/Privilege Escalation.md",
     "Security+/Acronyms.md",
+    "CTF Strategies/Privilege Escalation.md",
+    "Blue Team/Blue Team Windows.md",
+    "CLI/Unix.md",
     "Blue Team/Blue Team Linux.md",
     "Checklist/Privilege Escalation Checklist.md",
-    "CTF Strategies/Meterpreter commands.md",
     "Security+/Standards & Policy.md",
     "CTF Strategies/Windows.md",
     "OSINT/OSINT.md",
@@ -191,13 +194,11 @@
     "Security+/Attack Frameworks.md",
     "Security+/Vulnerability Assessment.md",
     "CLI/Windows.md",
-    "CTF Strategies/EnumerationConnection&Stabilization.md",
     "CTF Strategies/Windows/Untitled.md",
     "CTF Strategies/Windows",
     "CLI/Windows",
     "CLI/Unix",
     "CLI",
-    "Blue Team/Blue Team Windows.md",
     "Diamond Attack Model/Defense.md",
     "Diamond Attack Model/Attack.md",
     "Blue Team/WebApp Hardening.md",
@@ -206,7 +207,6 @@
     "This is the new Git.md",
     "2024-04-26.md",
     "Untitled.canvas",
-    "CTF Strategies/Tools.md",
     "Cmd Line/Web Exploits/Untitled.md",
     "Cmd Line/Web Exploits",
     "OSINT",
