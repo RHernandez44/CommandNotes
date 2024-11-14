@@ -68,3 +68,5 @@ DDP
 TPM
 - Trusted Platform Module (TPM). The TPM chip has a secure storage area to which a disk encryption program, such as Windows BitLocker, can write its keys.
 
+SIEM
+- Security Information and Event Management (SIEM) platform. A SIEM can generate huge numbers of alerts that need to be manually assessed for priority and investigation

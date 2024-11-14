@@ -70,11 +70,6 @@ Scan to avoid IDS
 `--reason` if you want Nmap to provide more details regarding its reasoning and conclusions
 
 
-
-
-![[Screenshot 2024-01-26 133046.png]]
-
-
 #### ARP Scanning for subnets
 
 ARP scan is possible only if you are on the same subnet as the target systems
