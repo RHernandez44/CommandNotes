@@ -293,16 +293,16 @@ can output to certain filetypes like html or txt
 
 ---
 
-### Web Exploitation
+## Web Exploitation
 
-#### Username Enumeration
+### Username Enumeration
 
 ```shell
 ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -X POST -d "username=FUZZ&email=x&password=x&cpassword=x" -H "Content-Type: application/x-www-form-urlencoded" -u http://MACHINE_IP/customers/signup -mr "username already exists"`
 ```
 
 ---
-## Passive Recon
+### Passive Recon
 
 find domain info
 `whois
@@ -328,6 +328,23 @@ you dont have to use port 80
 you can connect to any port, then run commands using that ports service e.g. SMTP, POP3
 
 
+### Verbose Errors
+
+Check for errors describing things like :
+- **Invalid Login Attempts**
+- SQL Injections
+- File inclusion/Path Traversal
+- Form Manipulation 
+- Application Fuzzing
+
+enumerate users using the website's Forget Password function
+
+Vulnerable Password Reset Logic
+
+Exploit Authorisation basic:
+``` http
+Authorization: Basic ZWdnczplZ2dz
+```
 
 
 
